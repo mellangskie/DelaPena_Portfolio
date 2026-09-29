@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma. Carmela L. Dela Peña | Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #f7f5f0;
+            --primary: #8b7355;
+            --accent: #c3b091;
+            --text: #4a3e3d;
+            --white: #ffffff;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 2.5rem 1rem;
+        }
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        header p {
+            font-size: 1rem;
+            color: var(--bg-color);
+        }
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .about-section {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 2rem;
+            border: 1px solid var(--accent);
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        .about-section h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            background-color: var(--accent);
+            color: var(--text);
+            border: none;
+            padding: 0.75rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        .content-panel {
+            display: none;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid var(--accent);
+        }
+        .content-panel.active {
+            display: block;
+        }
+        .content-panel h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background: var(--bg-color);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid var(--accent);
+        }
+        .card-title {
+            font-weight: 600;
+            color: var(--text);
+        }
+        .btn-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+        .action-btn {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem;
+            background-color: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .action-btn:hover {
+            background-color: #6e5a42;
+        }
+        .action-btn.secondary {
+            background-color: var(--accent);
+            color: var(--text);
+        }
+        .action-btn.secondary:hover {
+            background-color: #b09e80;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+        @media (min-width: 768px) {
+            .about-section {
+                flex-direction: row;
+                text-align: left;
+                gap: 2rem;
+            }
+            .profile-img {
+                margin-bottom: 0;
+            }
+            .tab-btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Ma. Carmela L. Dela Peña</h1>
+        <p>Computer Science Student | Portfolio</p>
+    </header>
+
+    <div class="container">
+        <section class="about-section">
+            <img src="profile.jpg" alt="Ma. Carmela L. Dela Peña" class="profile-img">
+            <div>
+                <h2>About Me</h2>
+                <p>A dedicated Computer Science student with a big dream to become successful and give my family a wonderful life. I love dancing and reading stories on wattpad. I will do my best to reach my goals.</p>
+            </div>
+        </section>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab('quizzes')">Quizzes</button>
+            <button class="tab-btn" onclick="openTab('exams')">Examinations</button>
+            <button class="tab-btn" onclick="openTab('labs')">Laboratory Activities</button>
+            <button class="tab-btn" onclick="openTab('projects')">Projects</button>
+        </div>
+
+        <section id="quizzes" class="content-panel active">
+            <h2>Quizzes</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="quiz1.jpg" alt="Quiz 1">
+                    <div class="card-title">Quiz 1 - Coverage Title</div>
+                    <div class="btn-group">
+                        <a href="quiz1.jpg" target="_blank" class="action-btn">View</a>
+                        <a href="quiz1.jpg" download class="action-btn secondary">Download</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="exams" class="content-panel">
+            <h2>Examinations</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="exam1.jpg" alt="Exam 1">
+                    <div class="card-title">Midterm Exam</div>
+                    <div class="btn-group">
+                        <a href="exam1.jpg" target="_blank" class="action-btn">View</a>
+                        <a href="exam1.jpg" download class="action-btn secondary">Download</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="labs" class="content-panel">
+            <h2>Laboratory Activities</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="lab1.jpg" alt="Lab 1">
+                    <div class="card-title">Laboratory Activity 1</div>
+                    <div class="btn-group">
+                        <a href="lab1.jpg" target="_blank" class="action-btn">View</a>
+                        <a href="lab1.jpg" download class="action-btn secondary">Download</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="content-panel">
+            <h2>Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="project1.jpg" alt="Project 1">
+                    <div class="card-title">Final Project Prototype</div>
+                    <div class="btn-group">
+                        <a href="project1.jpg" target="_blank" class="action-btn">View</a>
+                        <a href="project1.jpg" download class="action-btn secondary">Download</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Ma. Carmela L. Dela Peña. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function openTab(tabId) {
+            const panels = document.querySelectorAll('.content-panel');
+            const tabs = document.querySelectorAll('.tab-btn');
+            
+            panels.forEach(panel => panel.classList.remove('active'));
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
