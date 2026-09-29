@@ -2,7 +2,7 @@ const portfolioFiles = {
     quizzes: [
         {
             name: "Quiz 1",
-            file: "files/quizzes/quiz1.pdf"
+            file: "files/quizzes/quiz1.jfif"
         },
         {
             name: "Quiz 2",
@@ -70,6 +70,7 @@ function showFiles(category) {
             const imageExtensions = [
                 "jpg",
                 "jpeg",
+                "jfif"
                 "png",
                 "gif",
                 "webp"
