@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,87 +12,107 @@
 <header>
     <nav>
         <div class="logo">Carmela's Portfolio</div>
+
         <div class="nav-links">
             <a href="#about">About Me</a>
-            <a href="#works">Portfolio</a>
+            <a href="#portfolio">Portfolio</a>
         </div>
     </nav>
 </header>
 
 <section class="hero">
-    <div class="hero-text">
-        <p class="small-title">WELCOME TO MY PORTFOLIO</p>
-        <h1>Ma. Carmela L. Dela Peña</h1>
-        <p>Computer Science Student</p>
-        <a href="#about" class="button">Explore My Portfolio</a>
+    <div class="hero-content">
+        <p class="welcome">WELCOME TO MY PORTFOLIO</p>
+
+        <h1>Ma. Carmela<br>L. Dela Peña</h1>
+
+        <p class="subtitle">Computer Science Student</p>
+
+        <a href="#about" class="hero-button">Explore My Portfolio</a>
     </div>
 </section>
 
 <section id="about" class="about">
     <div class="profile-container">
-        <img src="profile.jpg" alt="Ma. Carmela L. Dela Peña" class="profile">
+        <img src="profile.jpg" alt="Ma. Carmela L. Dela Peña" class="profile-picture">
     </div>
 
-    <div class="about-text">
-        <p class="section-label">ABOUT ME</p>
-        <h2>Ma. Carmela L. Dela Peña</h2>
+    <div class="about-content">
+        <p class="label">ABOUT ME</p>
+
+        <h2>Hi, I'm Carmela!</h2>
+
         <p>
             A dedicated Computer Science student with a big dream to become successful and give my family a wonderful life. I love dancing and reading stories on wattpad. I will do my best to reach my goals.
         </p>
     </div>
 </section>
 
-<section id="works" class="works">
-    <p class="section-label">MY PORTFOLIO</p>
-    <h2>Academic Works</h2>
-    <p class="description">Click a category to view my files and activities.</p>
+<section id="portfolio" class="portfolio">
+    <div class="section-heading">
+        <p class="label">MY WORKS</p>
+        <h2>Academic Portfolio</h2>
+        <p>Click a category to view my files and activities.</p>
+    </div>
 
-    <div class="category-container">
+    <div class="category-grid">
 
-        <button class="category" onclick="showFiles('quizzes')">
-            <span>01</span>
+        <button class="category-card" onclick="showFiles('quizzes')">
+            <span class="number">01</span>
+            <div class="category-icon">📝</div>
             <h3>Quizzes</h3>
-            <p>View my quiz files and photos</p>
+            <p>View my quizzes and assessments.</p>
+            <span class="view-text">View Files →</span>
         </button>
 
-        <button class="category" onclick="showFiles('examinations')">
-            <span>02</span>
+        <button class="category-card" onclick="showFiles('examinations')">
+            <span class="number">02</span>
+            <div class="category-icon">📚</div>
             <h3>Examinations</h3>
-            <p>View my examination files and photos</p>
+            <p>View my examination files.</p>
+            <span class="view-text">View Files →</span>
         </button>
 
-        <button class="category" onclick="showFiles('laboratory')">
-            <span>03</span>
+        <button class="category-card" onclick="showFiles('laboratory')">
+            <span class="number">03</span>
+            <div class="category-icon">💻</div>
             <h3>Laboratory Activities</h3>
-            <p>View my laboratory activities</p>
+            <p>View my laboratory activities and outputs.</p>
+            <span class="view-text">View Files →</span>
         </button>
 
-        <button class="category" onclick="showFiles('projects')">
-            <span>04</span>
+        <button class="category-card" onclick="showFiles('projects')">
+            <span class="number">04</span>
+            <div class="category-icon">📁</div>
             <h3>Projects</h3>
-            <p>View my projects and outputs</p>
+            <p>View my projects and documentation.</p>
+            <span class="view-text">View Files →</span>
         </button>
 
     </div>
 </section>
 
-<section id="file-section" class="file-section">
-    <div class="file-header">
+<section id="files-section" class="files-section">
+    <div class="files-header">
         <div>
-            <p class="section-label">FILES</p>
-            <h2 id="file-title">Files</h2>
+            <p class="label">MY FILES</p>
+            <h2 id="files-title">Files</h2>
         </div>
-        <button onclick="closeFiles()" class="close-button">Close</button>
+
+        <button class="close-button" onclick="closeFiles()">Close ×</button>
     </div>
 
-    <div id="file-list" class="file-list"></div>
+    <div id="files-container" class="files-container"></div>
 </section>
 
 <footer>
-    <p>© 2026 Ma. Carmela L. Dela Peña</p>
-    <p>Personal Portfolio</p>
+    <h3>Ma. Carmela L. Dela Peña</h3>
+    <p>Computer Science Student</p>
+    <p class="copyright">© 2026 All Rights Reserved</p>
 </footer>
 
 <script src="script.js"></script>
+
 </body>
 </html>
+```
