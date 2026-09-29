@@ -1,4 +1,4 @@
-const files = {
+const portfolioFiles = {
     quizzes: [
         {
             name: "Quiz 1",
@@ -14,10 +14,6 @@ const files = {
         {
             name: "Examination 1",
             file: "files/examinations/exam1.pdf"
-        },
-        {
-            name: "Examination 2",
-            file: "files/examinations/exam2.jpg"
         }
     ],
 
@@ -27,8 +23,8 @@ const files = {
             file: "files/laboratory/lab1.jpg"
         },
         {
-            name: "Laboratory Report",
-            file: "files/laboratory/labreport.pdf"
+            name: "Laboratory Activity 2",
+            file: "files/laboratory/lab2.pdf"
         }
     ],
 
@@ -45,9 +41,9 @@ const files = {
 };
 
 function showFiles(category) {
-    const section = document.getElementById("file-section");
-    const list = document.getElementById("file-list");
-    const title = document.getElementById("file-title");
+    const section = document.getElementById("files-section");
+    const container = document.getElementById("files-container");
+    const title = document.getElementById("files-title");
 
     const titles = {
         quizzes: "Quizzes",
@@ -57,18 +53,31 @@ function showFiles(category) {
     };
 
     title.textContent = titles[category];
-    list.innerHTML = "";
+    container.innerHTML = "";
 
-    if (files[category].length === 0) {
-        list.innerHTML = '<div class="empty">No files uploaded yet.</div>';
+    const categoryFiles = portfolioFiles[category];
+
+    if (!categoryFiles || categoryFiles.length === 0) {
+        container.innerHTML = `
+            <div class="empty">
+                No files uploaded yet.
+            </div>
+        `;
     } else {
-        files[category].forEach(item => {
+        categoryFiles.forEach(item => {
             const extension = item.file.split(".").pop().toLowerCase();
-            const imageTypes = ["jpg", "jpeg", "png", "gif", "webp"];
 
-            let preview = "";
+            const imageExtensions = [
+                "jpg",
+                "jpeg",
+                "png",
+                "gif",
+                "webp"
+            ];
 
-            if (imageTypes.includes(extension)) {
+            let preview;
+
+            if (imageExtensions.includes(extension)) {
                 preview = `
                     <div class="file-preview">
                         <img src="${item.file}" alt="${item.name}">
@@ -82,22 +91,48 @@ function showFiles(category) {
                 `;
             }
 
-            list.innerHTML += `
+            container.innerHTML += `
                 <div class="file-card">
+
                     ${preview}
-                    <div class="file-info">
+
+                    <div class="file-details">
+
                         <h3>${item.name}</h3>
-                        <a class="download-button" href="${item.file}" target="_blank" download>View / Download</a>
+
+                        <div class="file-buttons">
+
+                            <a
+                                href="${item.file}"
+                                target="_blank"
+                                class="file-button view-button">
+                                View
+                            </a>
+
+                            <a
+                                href="${item.file}"
+                                download
+                                class="file-button download-button">
+                                Download
+                            </a>
+
+                        </div>
+
                     </div>
+
                 </div>
             `;
         });
     }
 
     section.style.display = "block";
-    section.scrollIntoView({ behavior: "smooth" });
+
+    section.scrollIntoView({
+        behavior: "smooth"
+    });
 }
 
 function closeFiles() {
-    document.getElementById("file-section").style.display = "none";
+    document.getElementById("files-section").style.display = "none";
 }
+
