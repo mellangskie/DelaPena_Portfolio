@@ -1,17 +1,17 @@
-```javascript
+
 const portfolioFiles = {
+  
     quizzes: [
         {
             name: "Quiz 1",
-            file: "files/quizzes/quiz1.jfif"
+            file: "./files/quizzes/quiz1.jfif"
         }
     ],
 
     examinations: [],
-
     laboratory: [],
-
     projects: []
+
 };
 
 function showFiles(category) {
