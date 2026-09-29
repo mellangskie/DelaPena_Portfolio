@@ -1,43 +1,17 @@
+```javascript
 const portfolioFiles = {
     quizzes: [
         {
             name: "Quiz 1",
             file: "files/quizzes/quiz1.jfif"
-        },
-        {
-            name: "Quiz 2",
-            file: "files/quizzes/quiz2.jpg"
         }
     ],
 
-    examinations: [
-        {
-            name: "Examination 1",
-            file: "files/examinations/exam1.pdf"
-        }
-    ],
+    examinations: [],
 
-    laboratory: [
-        {
-            name: "Laboratory Activity 1",
-            file: "files/laboratory/lab1.jpg"
-        },
-        {
-            name: "Laboratory Activity 2",
-            file: "files/laboratory/lab2.pdf"
-        }
-    ],
+    laboratory: [],
 
-    projects: [
-        {
-            name: "Project 1",
-            file: "files/projects/project1.jpg"
-        },
-        {
-            name: "Project Documentation",
-            file: "files/projects/project2.pdf"
-        }
-    ]
+    projects: []
 };
 
 function showFiles(category) {
@@ -55,22 +29,22 @@ function showFiles(category) {
     title.textContent = titles[category];
     container.innerHTML = "";
 
-    const categoryFiles = portfolioFiles[category];
+    const files = portfolioFiles[category];
 
-    if (!categoryFiles || categoryFiles.length === 0) {
+    if (files.length === 0) {
         container.innerHTML = `
             <div class="empty">
                 No files uploaded yet.
             </div>
         `;
     } else {
-        categoryFiles.forEach(item => {
+        files.forEach(item => {
             const extension = item.file.split(".").pop().toLowerCase();
 
             const imageExtensions = [
                 "jpg",
                 "jpeg",
-                "jfif"
+                "jfif",
                 "png",
                 "gif",
                 "webp"
@@ -94,33 +68,21 @@ function showFiles(category) {
 
             container.innerHTML += `
                 <div class="file-card">
-
                     ${preview}
 
                     <div class="file-details">
-
                         <h3>${item.name}</h3>
 
                         <div class="file-buttons">
-
-                            <a
-                                href="${item.file}"
-                                target="_blank"
-                                class="file-button view-button">
+                            <a href="${item.file}" target="_blank" class="file-button view-button">
                                 View
                             </a>
 
-                            <a
-                                href="${item.file}"
-                                download
-                                class="file-button download-button">
+                            <a href="${item.file}" download class="file-button download-button">
                                 Download
                             </a>
-
                         </div>
-
                     </div>
-
                 </div>
             `;
         });
@@ -136,4 +98,4 @@ function showFiles(category) {
 function closeFiles() {
     document.getElementById("files-section").style.display = "none";
 }
-
+```
