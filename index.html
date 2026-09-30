@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f7f5f0; /* Light Cream Background */
+            background-color: #f7f5f0;
             color: #4a3e3d;
             margin: 0;
             padding: 20px;
@@ -16,60 +16,68 @@
             max-width: 800px;
             margin: 0 auto;
             background: #ffffff;
-            padding: 30px;
+            padding: 25px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
         header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         header h1 {
-            color: #8b7355; /* Light Brown */
+            color: #8b7355;
             margin: 0 0 5px 0;
         }
         header p {
-            color: #c3b091; /* Khaki */
+            color: #c3b091;
             margin: 0;
             font-weight: bold;
         }
         .about {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 30px;
+            text-align: center;
+            gap: 15px;
+            margin-bottom: 25px;
             border-bottom: 1px solid #e0dcd3;
             padding-bottom: 20px;
         }
         .about img {
-            width: 100px;
-            height: 100px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #c3b091; /* Khaki Border */
+            border: 4px solid #c3b091;
         }
         .about h3 {
             color: #8b7355;
             margin: 0 0 5px 0;
         }
+        .school {
+            font-weight: bold;
+            color: #c3b091;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
         .tabs {
             display: flex;
-            gap: 10px;
-            margin-bottom: 25px;
+            gap: 8px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
+            justify-content: center;
         }
         .tab-btn {
-            padding: 10px 18px;
+            padding: 8px 14px;
             border: none;
-            background: #c3b091; /* Khaki */
-            color: #ffffff;
+            background: #c3b091;
+            color: #fff;
             cursor: pointer;
             border-radius: 4px;
             font-weight: bold;
-            transition: 0.2s;
         }
-        .tab-btn.active, .tab-btn:hover {
-            background: #8b7355; /* Light Brown */
+        .tab-btn.active {
+            background: #8b7355;
         }
         .panel {
             display: none;
@@ -80,41 +88,29 @@
         .card {
             background: #fdfcf7;
             border: 1px solid #e0dcd3;
-            padding: 15px 20px;
+            padding: 12px 15px;
             border-radius: 6px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .card-title {
-            font-weight: bold;
-        }
         .btn-group {
             display: flex;
-            gap: 8px;
+            gap: 6px;
         }
-        button.action {
-            padding: 8px 14px;
+        button {
+            padding: 6px 12px;
             cursor: pointer;
             border: 1px solid #8b7355;
-            background: #ffffff;
+            background: #fff;
             color: #8b7355;
             border-radius: 4px;
             font-weight: bold;
-            transition: 0.2s;
         }
-        button.action:hover {
+        button:hover, button.download {
             background: #8b7355;
-            color: #ffffff;
-        }
-        button.download {
-            background: #8b7355;
-            color: #ffffff;
-        }
-        button.download:hover {
-            background: #6e5a42;
-            border-color: #6e5a42;
+            color: #fff;
         }
         #modal {
             display: none;
@@ -123,22 +119,21 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0,0,0,0.8);
             justify-content: center;
             align-items: center;
             z-index: 1000;
         }
         #modal img {
             max-width: 90%;
-            max-height: 85vh;
-            border-radius: 6px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            max-height: 80vh;
+            border-radius: 4px;
         }
         .close {
             position: absolute;
             top: 20px;
             right: 30px;
-            color: #ffffff;
+            color: #fff;
             font-size: 35px;
             cursor: pointer;
         }
@@ -153,9 +148,10 @@
     </header>
 
     <div class="about">
-        <img src="mella.jpg" alt="Profile Picture">
+        <img src="mella.jpg" alt="Profile">
         <div>
             <h3>About Me</h3>
+            <div class="school">BSCS-3B | Cavite State University - Silang Campus</div>
             <p>A dedicated Computer Science student with a big dream to become successful and give my family a wonderful life. I love dancing and reading stories on wattpad. I will do my best to reach my goals.</p>
         </div>
     </div>
@@ -167,55 +163,50 @@
         <button class="tab-btn" onclick="switchTab(event, 'projects')">Projects</button>
     </div>
 
-    <!-- Quizzes -->
     <div id="quizzes" class="panel active">
         <div class="card">
-            <span class="card-title">Quiz 1</span>
+            <span>Quiz 1</span>
             <div class="btn-group">
-                <button class="action" onclick="viewImage('quiz1.jpeg')">View</button>
-                <button class="action download" onclick="downloadFile('quiz1.jpeg', 'Quiz_1.jpeg')">Download</button>
+                <button onclick="viewImage('quiz1.jpeg')">View</button>
+                <button class="download" onclick="downloadFile('quiz1.jpeg', 'Quiz_1.jpeg')">Download</button>
             </div>
         </div>
     </div>
 
-    <!-- Examinations -->
     <div id="exams" class="panel">
         <div class="card">
-            <span class="card-title">Midterm Exam</span>
+            <span>Midterm Exam</span>
             <div class="btn-group">
-                <button class="action" onclick="viewImage('exam1.jpg')">View</button>
-                <button class="action download" onclick="downloadFile('exam1.jpg', 'Midterm_Exam.jpg')">Download</button>
+                <button onclick="viewImage('exam1.jpg')">View</button>
+                <button class="download" onclick="downloadFile('exam1.jpg', 'Midterm_Exam.jpg')">Download</button>
             </div>
         </div>
     </div>
 
-    <!-- Laboratory Activities -->
     <div id="labs" class="panel">
         <div class="card">
-            <span class="card-title">Laboratory Activity 1</span>
+            <span>Laboratory Activity 1</span>
             <div class="btn-group">
-                <button class="action" onclick="viewImage('lab1.jpg')">View</button>
-                <button class="action download" onclick="downloadFile('lab1.jpg', 'Laboratory_Activity_1.jpg')">Download</button>
+                <button onclick="viewImage('lab1.jpg')">View</button>
+                <button class="download" onclick="downloadFile('lab1.jpg', 'Lab_1.jpg')">Download</button>
             </div>
         </div>
     </div>
 
-    <!-- Projects -->
     <div id="projects" class="panel">
         <div class="card">
-            <span class="card-title">Final Project Prototype</span>
+            <span>Final Project Prototype</span>
             <div class="btn-group">
-                <button class="action" onclick="viewImage('project1.jpg')">View</button>
-                <button class="action download" onclick="downloadFile('project1.jpg', 'Final_Project_Prototype.jpg')">Download</button>
+                <button onclick="viewImage('project1.jpg')">View</button>
+                <button class="download" onclick="downloadFile('project1.jpg', 'Project.jpg')">Download</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Lightbox Modal -->
 <div id="modal" onclick="closeModal()">
     <span class="close">&times;</span>
-    <img id="modalImg" src="" onclick="event.stopPropagation()">
+    <img id="modalImg" src="">
 </div>
 
 <script>
@@ -251,3 +242,4 @@
 
 </body>
 </html>
+
