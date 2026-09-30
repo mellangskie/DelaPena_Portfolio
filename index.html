@@ -277,44 +277,56 @@
 </div>
 
 <script>
-    function viewImage(url) {
-        document.getElementById('modalImg').src = url;
-        document.getElementById('modal').style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Locks underlying page context
+     function openTab(tabId) {
+        const panels = document.querySelectorAll('.content-panel');
+        const tabs = document.querySelectorAll('.tab-btn');
+        
+        panels.forEach(panel => panel.classList.remove('active'));
+        tabs.forEach(tab => tab.classList.remove('active'));
+        
+        document.getElementById(tabId).classList.add('active');
+        event.currentTarget.classList.add('active');
     }
 
-    function closeModal() {
-        document.getElementById('modal').style.display = 'none';
-        document.getElementById('modalImg').src = '';
-        document.body.style.overflow = 'auto'; // Restores layout scroll context
+    function previewFile(url) {
+        const modal = document.getElementById('previewModal');
+        const body = document.getElementById('modalBody');
+        const extension = url.split('.').pop().toLowerCase();
+
+        if (['jpg', 'jpeg', 'png', 'gif', 'jfif', 'webp'].includes(extension)) {
+            body.innerHTML = `<img src="${url}" style="width:100%; height:auto; max-height:80vh; object-fit:contain; display:block;" alt="Preview">`;
+        } else if (extension === 'pdf') {
+            body.innerHTML = `<iframe src="${url}" style="width:80vw; height:80vh; border:none;"></iframe>`;
+        } else {
+            window.open(url, '_blank');
+            return;
+        }
+        modal.style.display = 'flex';
     }
 
-    // Force Download implementation architecture engineered to bypass mobile OS display filters
-    function downloadFile(url, filename) {
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", url, true);
-        xhr.responseType = "blob";
-        xhr.onload = function() {
-            var blob = xhr.response;
-            var reader = new FileReader();
-            reader.onloadend = function() {
-                var link = document.createElement('a');
-                link.href = reader.result;
-                link.download = filename;
-                link.style.display = 'none';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }
-            reader.readAsDataURL(blob);
-        };
-        xhr.onerror = function() {
-            var fallbackLink = document.createElement('a');
-            fallbackLink.href = url;
-            fallbackLink.download = filename;
-fallbackLink.target = '_blank';
-fallbackLink.click();
-};
-xhr.send();
-}
-    <script>
+    function closePreview() {
+        document.getElementById('previewModal').style.display = 'none';
+        document.getElementById('modalBody').innerHTML = '';
+    }
+
+    function forceDownload(event, url, filename) {
+        event.preventDefault();
+        fetch(url)
+            .then(response => response.blob())
+            .then(blob => {
+                const blobUrl = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = blobUrl;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(blobUrl);
+                document.body.removeChild(a);
+            })
+            .catch(() => window.open(url, '_blank'));
+    }
+</script>
+</body>
+</html>
+    
