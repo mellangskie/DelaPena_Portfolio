@@ -4,522 +4,228 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ma. Carmela L. Dela Peña | Portfolio</title>
-    <!-- I-link ang external CSS file -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        header p {
+            color: #666;
+            margin: 5px 0 0;
+        }
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        .about img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #ddd;
+        }
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            padding: 8px 16px;
+            border: none;
+            background: #e0e0e0;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .tab-btn.active {
+            background: #333;
+            color: #fff;
+        }
+        .panel {
+            display: none;
+        }
+        .panel.active {
+            display: block;
+        }
+        .card {
+            background: #fafafa;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-group {
+            display: flex;
+            gap: 8px;
+        }
+        button {
+            padding: 6px 12px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background: #fff;
+            border-radius: 4px;
+        }
+        button:hover {
+            background: #eee;
+        }
+        #modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+        }
+        #modal img {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 4px;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 30px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
+<div class="container">
     <header>
         <h1>Ma. Carmela L. Dela Peña</h1>
-        <p>Computer Science Student | System Portfolio</p>
+        <p>Computer Science Portfolio</p>
     </header>
 
-    <div class="container">
-        <section class="about-section">
-            <img src="mella.jpg" alt="Ma. Carmela L. Dela Peña" class="profile-img">
-            <div>
-                <h2>About Me</h2>
-                <p>A dedicated Computer Science student with a big dream to become successful and give my family a wonderful life. I love dancing and reading stories on wattpad. I will do my best to reach my goals.</p>
-            </div>
-        </section>
-
-        <div class="tabs">
-            <button class="tab-btn active" onclick="openTab(event, 'quizzes')">Quizzes</button>
-            <button class="tab-btn" onclick="openTab(event, 'exams')">Examinations</button>
-            <button class="tab-btn" onclick="openTab(event, 'labs')">Laboratory Activities</button>
-            <button class="tab-btn" onclick="openTab(event, 'projects')">Projects</button>
-        </div>
-
-        <section id="quizzes" class="content-panel active" style="display: block; opacity: 1; transform: translateY(0);">
-            <h2>Quizzes</h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="file-icon-placeholder">
-                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                        <span>Image File Protected</span>
-                    </div>
-                    <div class="card-title">Quiz 1</div>
-                    <div class="btn-group">
-                        <button onclick="previewFile('quiz1.jpeg')" class="action-btn">View Preview</button>
-                        <button onclick="forceDownload(event, 'quiz1.jpeg', 'quiz1.jpeg')" class="action-btn secondary">Download</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="exams" class="content-panel">
-            <h2>Examinations</h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="file-icon-placeholder">
-                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                        <span>Image File Protected</span>
-                    </div>
-                    <div class="card-title">Midterm Exam</div>
-                    <div class="btn-group">
-                        <button onclick="previewFile('exam1.jpg')" class="action-btn">View Preview</button>
-                        <button onclick="forceDownload(event, 'exam1.jpg', 'exam1.jpg')" class="action-btn secondary">Download</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="labs" class="content-panel">
-            <h2>Laboratory Activities</h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="file-icon-placeholder">
-                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                        <span>Image File Protected</span>
-                    </div>
-                    <div class="card-title">Laboratory Activity 1</div>
-                    <div class="btn-group">
-                        <button onclick="previewFile('lab1.jpg')" class="action-btn">View Preview</button>
-                        <button onclick="forceDownload(event, 'lab1.jpg', 'lab1.jpg')" class="action-btn secondary">Download</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="content-panel">
-            <h2>Projects</h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="file-icon-placeholder">
-                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                        <span>Image File Protected</span>
-                    </div>
-                    <div class="card-title">Final Project Prototype</div>
-                    <div class="btn-group">
-                        <button onclick="previewFile('project1.jpg')" class="action-btn">View Preview</button>
-                        <button onclick="forceDownload(event, 'project1.jpg', 'project1.jpg')" class="action-btn secondary">Download</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <div id="previewModal" onclick="closePreview()">
-        <span class="close-modal-btn">&times;</span>
-        <div class="modal-container" onclick="event.stopPropagation()">
-            <div id="modalBody"></div>
+    <div class="about">
+        <img src="mella.jpg" alt="Profile">
+        <div>
+            <h3>About Me</h3>
+            <p>A dedicated Computer Science student working hard to reach my goals.</p>
         </div>
     </div>
-  
-    <script src="script.js"></script>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab(event, 'quizzes')">Quizzes</button>
+        <button class="tab-btn" onclick="switchTab(event, 'exams')">Examinations</button>
+        <button class="tab-btn" onclick="switchTab(event, 'labs')">Laboratory Activities</button>
+        <button class="tab-btn" onclick="switchTab(event, 'projects')">Projects</button>
+    </div>
+
+    <div id="quizzes" class="panel active">
+        <h3>Quizzes</h3>
+        <div class="card">
+            <span>Quiz 1</span>
+            <div class="btn-group">
+                <button onclick="viewImage('quiz1.jpeg')">View</button>
+                <button onclick="downloadFile('quiz1.jpeg', 'Quiz_1.jpeg')">Download</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="exams" class="panel">
+        <h3>Examinations</h3>
+        <div class="card">
+            <span>Midterm Exam</span>
+            <div class="btn-group">
+                <button onclick="viewImage('exam1.jpg')">View</button>
+                <button onclick="downloadFile('exam1.jpg', 'Midterm_Exam.jpg')">Download</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="labs" class="panel">
+        <h3>Laboratory Activities</h3>
+        <div class="card">
+            <span>Laboratory Activity 1</span>
+            <div class="btn-group">
+                <button onclick="viewImage('lab1.jpg')">View</button>
+                <button onclick="downloadFile('lab1.jpg', 'Lab_1.jpg')">Download</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="projects" class="panel">
+        <h3>Projects</h3>
+        <div class="card">
+            <span>Final Project Prototype</span>
+            <div class="btn-group">
+                <button onclick="viewImage('project1.jpg')">View</button>
+                <button onclick="downloadFile('project1.jpg', 'Project.jpg')">Download</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal" onclick="closeModal()">
+    <span class="close">&times;</span>
+    <img id="modalImg" src="">
+</div>
+
+<script>
+    function switchTab(evt, tabId) {
+        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        evt.currentTarget.classList.add('active');
+    }
+
+    function viewImage(url) {
+        document.getElementById('modalImg').src = url;
+        document.getElementById('modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+        document.getElementById('modalImg').src = '';
+    }
+
+    function downloadFile(url, filename) {
+        fetch(url)
+            .then(res => res.blob())
+            .then(blob => {
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = filename;
+                link.click();
+            })
+            .catch(() => window.open(url, '_blank'));
+    }
+</script>
+
 </body>
 </html>
-
-:root {
-    --bg-gradient: linear-gradient(135deg, #1a1c1e 0%, #2b2d31 100%);
-    --panel-bg: #ffffff;
-    --primary: #2d3436;
-    --accent: #d4af37; /* Elegant Gold */
-    --accent-hover: #aa8c2c;
-    --text-dark: #2d3436;
-    --text-muted: #636e72;
-    --text-light: #f5f6fa;
-    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    --border-radius: 16px;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-}
-
-body {
-    background: var(--bg-gradient);
-    background-attachment: fixed;
-    color: var(--text-dark);
-    line-height: 1.7;
-    padding-bottom: 3rem;
-    min-height: 100vh;
-}
-
-header {
-    color: var(--text-light);
-    text-align: center;
-    padding: 5rem 1rem 4rem 1rem;
-    position: relative;
-}
-
-header h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    margin-bottom: 0.5rem;
-    background: linear-gradient(to right, #ffffff, #d4af37);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-header p {
-    font-size: 1.1rem;
-    color: #b2bec3;
-    font-weight: 400;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
-
-
-.about-section {
-    background: var(--panel-bg);
-    padding: 3rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 3rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.about-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 6px;
-    background: linear-gradient(to right, var(--primary), var(--accent));
-}
-
-.profile-img {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #fff;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    margin-bottom: 1.5rem;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.profile-img:hover {
-    transform: scale(1.05) rotate(2deg);
-}
-
-.about-section h2 {
-    font-size: 1.8rem;
-    color: var(--primary);
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-.about-section p {
-    color: var(--text-muted);
-    max-width: 700px;
-    font-size: 1.05rem;
-}
-
-
-.tabs {
-    display: flex;
-    justify-content: center;
-    gap: 0.75rem;
-    margin-bottom: 2.5rem;
-    flex-wrap: wrap;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 0.5rem;
-    border-radius: 30px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.tab-btn {
-    background-color: transparent;
-    color: #b2bec3;
-    border: none;
-    padding: 0.8rem 1.8rem;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    font-size: 0.95rem;
-}
-
-.tab-btn.active {
-    background-color: #ffffff;
-    color: var(--primary);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.tab-btn:hover:not(.active) {
-    color: var(--text-light);
-    background-color: rgba(255,255,255,0.08);
-}
-
-
-.content-panel {
-    display: none;
-    opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.content-panel.active {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.content-panel h2 {
-    color: var(--text-light);
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.content-panel h2::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: rgba(255,255,255,0.15);
-    margin-left: 1rem;
-}
-
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.card {
-    background: var(--panel-bg);
-    border-radius: var(--border-radius);
-    padding: 2rem;
-    box-shadow: var(--card-shadow);
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-}
-
-/* Protected File Visual Box */
-.file-icon-placeholder {
-    width: 100%;
-    height: 140px;
-    background: #f1f2f6;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 2px dashed #ced6e0;
-    color: var(--text-muted);
-}
-
-.file-icon-placeholder svg {
-    width: 45px;
-    height: 45px;
-    margin-bottom: 0.5rem;
-    fill: var(--accent);
-}
-
-.file-icon-placeholder span {
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-
-.card-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--primary);
-}
-
-/* UI Action Buttons */
-.btn-group {
-    display: flex;
-    gap: 0.75rem;
-    margin-top: auto;
-}
-
-.action-btn {
-    flex: 1;
-    text-align: center;
-    padding: 0.8rem;
-    background-color: var(--primary);
-    color: var(--text-light);
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    border: none;
-}
-
-.action-btn:hover {
-    background-color: #1e2224;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.action-btn.secondary {
-    background-color: transparent;
-    color: var(--primary);
-    border: 2px solid #dfe4ea;
-}
-
-.action-btn.secondary:hover {
-    background-color: #f1f2f6;
-    border-color: #ced6e0;
-}
-
-
-#previewModal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(15, 17, 19, 0.95);
-    backdrop-filter: blur(8px);
-    justify-content: center;
-    align-items: center;
-    padding: 1.5rem;
-}
-
-.close-modal-btn {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: #fff;
-    font-size: 40px;
-    font-weight: 300;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.close-modal-btn:hover {
-    transform: scale(1.1);
-    color: var(--accent);
-}
-
-.modal-container {
-    max-width: 95%;
-    max-height: 85vh;
-    border-radius: var(--border-radius);
-    background-color: #fff;
-    padding: 0.75rem;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-    animation: modalZoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-@keyframes modalZoom {
-    from { transform: scale(0.9); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-footer {
-    text-align: center;
-    padding: 3rem 2rem 1rem 2rem;
-    color: #b2bec3;
-    font-size: 0.9rem;
-}
-
-@media (min-width: 768px) {
-    .about-section {
-        flex-direction: row;
-        text-align: left;
-        gap: 3rem;
-    }
-    .profile-img {
-        margin-bottom: 0;
-    }
-    header {
-        padding: 6rem 1rem 4rem 1rem;
-    }
-}
-
-function openTab(event, tabId) {
-    const panels = document.querySelectorAll('.content-panel');
-    const tabs = document.querySelectorAll('.tab-btn');
-    
- 
-    panels.forEach(panel => {
-        panel.style.display = 'none';
-        panel.classList.remove('active');
-    });
-    
- 
-    tabs.forEach(tab => tab.classList.remove('active'));
-    
- 
-    const targetPanel = document.getElementById(tabId);
-    targetPanel.style.display = 'block';
-    
- 
-    setTimeout(() => {
-        targetPanel.classList.add('active');
-    }, 50);
-
-  
-    event.currentTarget.classList.add('active');
-}
-
-function previewFile(url) {
-    const modal = document.getElementById('previewModal');
-    const body = document.getElementById('modalBody');
-    const extension = url.split('.').pop().toLowerCase();
-
- 
-    if (['jpg', 'jpeg', 'png', 'gif', 'jfif', 'webp'].includes(extension)) {
-        body.innerHTML = `<img src="${url}" style="max-width:100%; height:auto; max-height:80vh; object-fit:contain; display:block; border-radius:8px;" alt="Preview">`;
-    } else if (extension === 'pdf') {
-        body.innerHTML = `<iframe src="${url}" style="width:80vw; height:80vh; border:none;"></iframe>`;
-    } else {
-        window.open(url, '_blank');
-        return;
-    }
-    modal.style.display = 'flex';
-}
-
-function closePreview() {
-    document.getElementById('previewModal').style.display = 'none';
-    document.getElementById('modalBody').innerHTML = '';
-}
-
-function forceDownload(event, url, filename) {
-    event.preventDefault();
-    fetch(url)
-        .then(response => response.blob())
-        .then(blob => {
-            const blobUrl = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.style.display = 'none';
-            a.href = blobUrl;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(blobUrl);
-            document.body.removeChild(a);
-        })
-        .catch(() => window.open(url, '_blank'));
-}
 
