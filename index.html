@@ -196,129 +196,184 @@
         </section>
 
         <div class="tabs">
-            <button class="tab-btn active" onclick="openTab('quizzes')">Quizzes</button>
-            <button class="tab-btn" onclick="openTab('exams')">Examinations</button>
-            <button class="tab-btn" onclick="openTab('labs')">Laboratory Activities</button>
-            <button class="tab-btn" onclick="openTab('projects')">Projects</button>
+            <button class="tab-btn active" onclick="switchTab(event, 'quizzes')">Quizzes</button>
+            <button class="tab-btn" onclick="switchTab(event, 'activities')">Activities</button>
+            <button class="tab-btn" onclick="switchTab(event, 'exams')">Examinations</button>
+            <button class="tab-btn" onclick="switchTab(event, 'projects')">Projects</button>
         </div>
 
-      <section id="quizzes" class="content-panel active">
+        <!-- 1. Quizzes Filter Workspace -->
+        <section id="quizzes" class="content-panel active">
             <h2>Quizzes</h2>
             <div class="grid">
+                <!-- Quiz 1 -->
                 <div class="card">
-                    <img src="quiz1.jpeg" alt="Quiz 1">
+                    <img src="quiz1.jpeg" alt="Quiz 1" onclick="previewFile('quiz1.jpeg')">
                     <div class="card-title">Quiz 1</div>
                     <div class="btn-group">
-                        <a href="quiz1.jpeg" target="_blank" class="action-btn">View</a>
-                        <a href="quiz1.jpeg" download class="action-btn secondary">Download</a>
+                        <button onclick="previewFile('quiz1.jpeg')" class="action-btn">View</button>
+                        <button onclick="forceDownload(event, 'quiz1.jpeg', 'Quiz_1.jpeg')" class="action-btn secondary">Download</button>
+                    </div>
+                </div>
+                <!-- Quiz 2 (Slot para kapag magdadagdag ka) -->
+                <div class="card">
+                    <img src="quiz2.jpeg" alt="Quiz 2" onclick="previewFile('quiz2.jpeg')">
+                    <div class="card-title">Quiz 2</div>
+                    <div class="btn-group">
+                        <button onclick="previewFile('quiz2.jpeg')" class="action-btn">View</button>
+                        <button onclick="forceDownload(event, 'quiz2.jpeg', 'Quiz_2.jpeg')" class="action-btn secondary">Download</button>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- 2. Activities Filter Workspace (Para sa mga Files/Documents gaya ng PDF) -->
+        <section id="activities" class="content-panel">
+            <h2>Activities</h2>
+            <div class="grid">
+                <!-- Activity 1 -->
+                <div class="card">
+                    <div class="file-box" onclick="previewFile('activity1.pdf')">
+                        <span style="font-size: 45px; margin-bottom: 5px;">📄</span>
+                        <span style="font-weight: bold; font-size: 11px; color: var(--accent); letter-spacing: 0.5px;">VIEW DOCUMENT</span>
+                    </div>
+                    <div class="card-title">Activity 1</div>
+                    <div class="btn-group">
+                        <button onclick="previewFile('activity1.pdf')" class="action-btn">View</button>
+                        <button onclick="forceDownload(event, 'activity1.pdf', 'Activity_1.pdf')" class="action-btn secondary">Download</button>
+                    </div>
+                </div>
+                <!-- Activity 2 -->
+                <div class="card">
+                    <div class="file-box" onclick="previewFile('activity2.pdf')">
+                        <span style="font-size: 45px; margin-bottom: 5px;">📄</span>
+                        <span style="font-weight: bold; font-size: 11px; color: var(--accent); letter-spacing: 0.5px;">VIEW DOCUMENT</span>
+                    </div>
+                    <div class="card-title">Activity 2</div>
+                    <div class="btn-group">
+                        <button onclick="previewFile('activity2.pdf')" class="action-btn">View</button>
+                        <button onclick="forceDownload(event, 'activity2.pdf', 'Activity_2.pdf')" class="action-btn secondary">Download</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Examinations Filter Workspace -->
         <section id="exams" class="content-panel">
             <h2>Examinations</h2>
             <div class="grid">
+                <!-- Midterm Exam -->
                 <div class="card">
-                    <img src="exam1.jpg" alt="Exam 1">
+                    <img src="exam1.jpg" alt="Midterm Exam" onclick="previewFile('exam1.jpg')">
                     <div class="card-title">Midterm Exam</div>
                     <div class="btn-group">
-                        <a href="exam1.jpg" target="_blank" class="action-btn">View</a>
-                        <a href="exam1.jpg" download class="action-btn secondary">Download</a>
+                        <button onclick="previewFile('exam1.jpg')" class="action-btn">View</button>
+                        <button onclick="forceDownload(event, 'exam1.jpg', 'Midterm_Exam.jpg')" class="action-btn secondary">Download</button>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="labs" class="content-panel">
-            <h2>Laboratory Activities</h2>
-            <div class="grid">
+                <!-- Final Exam -->
                 <div class="card">
-                    <img src="lab1.jpg" alt="Lab 1">
-                    <div class="card-title">Laboratory Activity 1</div>
+                    <img src="exam2.jpg" alt="Final Exam" onclick="previewFile('exam2.jpg')">
+                    <div class="card-title">Final Exam</div>
                     <div class="btn-group">
-                        <a href="lab1.jpg" target="_blank" class="action-btn">View</a>
-                        <a href="lab1.jpg" download class="action-btn secondary">Download</a>
+                        <button onclick="previewFile('exam2.jpg')" class="action-btn">View</button>
+                        <button onclick="forceDownload(event, 'exam2.jpg', 'Final_Exam.jpg')" class="action-btn secondary">Download</button>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- 4. Projects Filter Workspace -->
         <section id="projects" class="content-panel">
             <h2>Projects</h2>
             <div class="grid">
                 <div class="card">
-                    <img src="project1.jpg" alt="Project 1">
+                    <img src="project1.jpg" alt="Final Project Prototype" onclick="previewFile('project1.jpg')">
                     <div class="card-title">Final Project Prototype</div>
                     <div class="btn-group">
-                    <a href = "project1.jpg" target="_blank" class="action-btn">View</a>
-                        <a href="project1.jpg" download class="action-btn secondary">Download</a>
+                        <button onclick="previewFile('project1.jpg')" class="action-btn">View</button>
+                        <button onclick="forceDownload(event, 'project1.jpg', 'Final_Project_Prototype.jpg')" class="action-btn secondary">Download</button>
                     </div>
                 </div>
             </div>
         </section>
-    </div>
-<div id="previewModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); justify-content:center; align-items:center; padding:1rem;" onclick="closePreview()">
-    <span style="position:absolute; top:15px; right:25px; color:#fff; font-size:35px; font-weight:bold; cursor:pointer;">&times;</span>
-    <div style="max-width:90%; max-height:85vh; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.3); background-color:#fff; padding:0.5rem;" onclick="event.stopPropagation()">
-        <div id="modalBody"></div>
-    </div>
-</div>
     <footer>
         <p>&copy; 2026 Ma. Carmela L. Dela Peña. All Rights Reserved.</p>
         
     </footer>
 
-   <script>
-    function openTab(tabId) {
-        const panels = document.querySelectorAll('.content-panel');
-        const tabs = document.querySelectorAll('.tab-btn');
-        
-        panels.forEach(panel => panel.classList.remove('active'));
-        tabs.forEach(tab => tab.classList.remove('active'));
-        
-        document.getElementById(tabId).classList.add('active');
-        event.currentTarget.classList.add('active');
-    }
-
-    function previewFile(url) {
-        const modal = document.getElementById('previewModal');
-        const body = document.getElementById('modalBody');
-        const extension = url.split('.').pop().toLowerCase();
-
-        if (['jpg', 'jpeg', 'png', 'gif', 'jfif', 'webp'].includes(extension)) {
-            body.innerHTML = `<img src="${url}" style="width:100%; height:auto; max-height:80vh; object-fit:contain; display:block;" alt="Preview">`;
-        } else if (extension === 'pdf') {
-            body.innerHTML = `<iframe src="${url}" style="width:80vw; height:80vh; border:none;"></iframe>`;
-        } else {
-            window.open(url, '_blank');
-            return;
+     <script>
+        // Tab display dynamic panel filter configuration
+        function switchTab(evt, tabId) {
+            document.querySelectorAll('.content-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            evt.currentTarget.classList.add('active');
         }
-        modal.style.display = 'flex';
-    }
 
-    function closePreview() {
-        document.getElementById('previewModal').style.display = 'none';
-        document.getElementById('modalBody').innerHTML = '';
-    }
+        function previewFile(url) {
+            const modal = document.getElementById('previewModal');
+            const body = document.getElementById('modalBody');
+            const extension = url.split('.').pop().toLowerCase();
 
-    function forceDownload(event, url, filename) {
-        event.preventDefault();
-        fetch(url)
-            .then(response => response.blob())
-            .then(blob => {
-                const blobUrl = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.style.display = 'none';
-                a.href = blobUrl;
-                a.download = filename;
-                document.body.appendChild(a);
-                a.click();
-                window.URL.revokeObjectURL(blobUrl);
-                document.body.removeChild(a);
-            })
-            .catch(() => window.open(url, '_blank'));
-    }
-</script>
+            if (['jpg', 'jpeg', 'png', 'gif', 'jfif', 'webp'].includes(extension)) {
+                body.innerHTML = `<img src="${url}" style="width:100%; height:auto; max-height:80vh; object-fit:contain; display:block; border-radius:4px;" alt="Preview">`;
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Locks body frame scrolling
+            } else {
+                // PDF at Documents preview window trigger rule for phone browser boundaries
+                window.open(url, '_blank');
+            }
+        }
+
+        function closePreview() {
+            document.getElementById('previewModal').style.display = 'none';
+            document.getElementById('modalBody').innerHTML = '';
+            document.body.style.overflow = 'auto'; // Restores layout scroll context
+        }
+
+        // Force Download algorithm engine configured to bypass core browser filters on iOS and Android
+        function forceDownload(event, url, filename) {
+            event.preventDefault();
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+            xhr.responseType = "blob";
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    var blob = xhr.response;
+                    var reader = new FileReader();
+                    reader.onloadend = function() {
+                        var link = document.createElement('a');
+                        link.href = reader.result;
+                        link.download = filename;
+                        link.style.display = 'none';
+                        link.target = '_blank'; // Necessary support hook for mobile browsers over network
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    }
+                    reader.readAsDataURL(blob);
+                } else {
+                    executeFallbackDownload(url, filename);
+                }
+            };
+            xhr.onerror = function() {
+                executeFallbackDownload(url, filename);
+            };
+            xhr.send();
+        }
+
+        function executeFallbackDownload(url, filename) {
+            const fallbackA = document.createElement('a');
+            fallbackA.href = url;
+            fallbackA.download = filename;
+            fallbackA.target = '_blank';
+            document.body.appendChild(fallbackA);
+            fallbackA.click();
+            document.body.removeChild(fallbackA);
+        }
+    </script>
+
 </body>
 </html>
