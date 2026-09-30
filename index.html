@@ -5,279 +5,272 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ma. Carmela L. Dela Peña | Portfolio</title>
     <style>
-        /* Base page configuration for natural continuous scrolling */
-        html, body {
-            min-height: 100%;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
+        :root {
+            --bg-color: #f7f5f0;
+            --primary: #8b7355;
+            --accent: #c3b091;
+            --text: #4a3e3d;
+            --white: #ffffff;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f5f0; /* Light Cream Background */
-            color: #4a3e3d;
-            margin: 0;
-            padding: 15px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 10px auto 30px auto;
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            background-color: var(--bg-color);
+            color: var(--text);
+            line-height: 1.6;
         }
         header {
+            background-color: var(--primary);
+            color: var(--white);
             text-align: center;
-            margin-bottom: 25px;
+            padding: 2.5rem 1rem;
         }
         header h1 {
-            color: #8b7355; /* Light Brown */
-            margin: 0 0 5px 0;
-            font-size: 26px;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
         }
         header p {
-            color: #c3b091; /* Khaki */
-            margin: 0;
-            font-weight: bold;
-            font-size: 15px;
+            font-size: 1rem;
+            color: var(--bg-color);
         }
-        .about {
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .about-section {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            gap: 15px;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #e0dcd3;
-            padding-bottom: 20px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--accent);
         }
-        .about img {
-            width: 130px;
-            height: 130px;
+        .profile-img {
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #c3b091;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            border: 4px solid var(--accent);
+            margin-bottom: 1.5rem;
         }
-        .about h3 {
-            color: #8b7355;
-            margin: 0 0 5px 0;
+        .about-section h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
         }
-        .school {
-            font-weight: bold;
-            color: #c3b091;
-            font-size: 14px;
-            margin-bottom: 8px;
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
         }
-        
-        /* Unified Section Layout Rules */
-        .section-group {
-            margin-bottom: 35px;
+        .tab-btn {
+            background-color: var(--accent);
+            color: var(--text);
+            border: none;
+            padding: 0.75rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
-        .section-group h3 {
-            color: #8b7355;
-            font-size: 20px;
-            margin: 0 0 15px 0;
-            border-bottom: 1px solid #e0dcd3;
-            padding-bottom: 6px;
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--primary);
+            color: var(--white);
         }
-
-        /* Box Layout Template Pattern based on the desktop reference style */
+        .content-panel {
+            display: none;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid var(--accent);
+        }
+        .content-panel.active {
+            display: block;
+        }
+        .content-panel h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
         .card {
-            background: #fdfcf7;
-            border: 1px solid #e0dcd3;
+            background: var(--bg-color);
+            border: 1px solid var(--accent);
             border-radius: 8px;
-            padding: 15px;
+            padding: 1rem;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 1rem;
         }
         .card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
             border-radius: 6px;
-            border: 1px solid #e0dcd3;
-            cursor: pointer;
-            transition: opacity 0.2s ease;
-        }
-        .card img:hover {
-            opacity: 0.9;
+            border: 1px solid var(--accent);
         }
         .card-title {
-            font-weight: bold;
-            color: #4a3e3d;
-            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
         }
         .btn-group {
             display: flex;
-            gap: 8px;
+            gap: 0.5rem;
             margin-top: auto;
         }
-        button {
+        .action-btn {
             flex: 1;
-            padding: 8px 12px;
-            cursor: pointer;
-            border: 1px solid #8b7355;
-            background: #ffffff;
-            color: #8b7355;
+            text-align: center;
+            padding: 0.5rem;
+            background-color: var(--primary);
+            color: var(--white);
+            text-decoration: none;
             border-radius: 4px;
-            font-weight: bold;
-            font-size: 13px;
-            transition: all 0.2s ease;
-            -webkit-tap-highlight-color: transparent;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: background 0.2s;
         }
-        button:hover {
-            background: #8b7355;
-            color: #ffffff;
+        .action-btn:hover {
+            background-color: #6e5a42;
         }
-        button.download {
-            background: #8b7355;
-            color: #ffffff;
+        .action-btn.secondary {
+            background-color: var(--accent);
+            color: var(--text);
         }
-        button.download:hover {
-            background: #6e5a42;
-            border-color: #6e5a42;
+        .action-btn.secondary:hover {
+            background-color: #b09e80;
         }
-
-        /* Responsive Immersive Target View Overlays */
-        #modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.85);
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            padding: 10px;
-            box-sizing: border-box;
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--primary);
+            font-size: 0.9rem;
         }
-        #modal img {
-            max-width: 100%;
-            max-height: 80vh;
-            border-radius: 4px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            object-fit: contain;
-        }
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            color: #ffffff;
-            font-size: 36px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 2100;
-        }
-
-        @media (min-width: 600px) {
-            body {
-                padding: 30px;
-            }
-            .about {
+        @media (min-width: 768px) {
+            .about-section {
                 flex-direction: row;
                 text-align: left;
-                padding-bottom: 20px;
+                gap: 2rem;
+            }
+            .profile-img {
+                margin-bottom: 0;
+            }
+            .tab-btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
     <header>
         <h1>Ma. Carmela L. Dela Peña</h1>
-        <p>Computer Science Student</p>
+        <p>Computer Science Student | Portfolio</p>
     </header>
 
-    <div class="about">
-        <img src="mella.jpg" alt="Profile">
-        <div>
-            <h3>About Me</h3>
-            <div class="school">BSCS-3B | Cavite State University - Silang Campus</div>
-            <p>A dedicated Computer Science student with a big dream to become successful and give my family a wonderful life. I love dancing and reading stories on wattpad. I will do my best to reach my goals.</p>
-        </div>
-    </div>
+    <div class="container">
+        <section class="about-section">
+            <img src="mella.jpg" alt="Ma. Carmela L. Dela Peña" class="profile-img">
+            <div>
+                <h2>About Me</h2>
+                <p>A dedicated Computer Science student with a big dream to become successful and give my family a wonderful life. I love dancing and reading stories on wattpad. I will do my best to reach my goals.</p>
+            </div>
+        </section>
 
-    <!-- Pila ng Sections pababa para sa tuluy-tuloy na pag-scroll -->
-    
-    <!-- Quizzes Section -->
-    <div class="section-group">
-        <h3>Quizzes</h3>
-        <div class="grid">
-            <div class="card">
-                <img src="quiz1.jpeg" alt="Quiz 1" onclick="viewImage('quiz1.jpeg')">
-                <div class="card-title">Quiz 1</div>
-                <div class="btn-group">
-                    <button onclick="viewImage('quiz1.jpeg')">View</button>
-                    <button class="download" onclick="downloadFile('quiz1.jpeg', 'Quiz_1.jpeg')">Download</button>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab('quizzes')">Quizzes</button>
+            <button class="tab-btn" onclick="openTab('exams')">Examinations</button>
+            <button class="tab-btn" onclick="openTab('labs')">Laboratory Activities</button>
+            <button class="tab-btn" onclick="openTab('projects')">Projects</button>
+        </div>
+
+      <section id="quizzes" class="content-panel active">
+            <h2>Quizzes</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="quiz1.jpeg" alt="Quiz 1">
+                    <div class="card-title">Quiz 1</div>
+                    <div class="btn-group">
+                        <a href="quiz1.jpeg" target="_blank" class="action-btn">View</a>
+                        <a href="quiz1.jpeg" download class="action-btn secondary">Download</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Examinations Section -->
-    <div class="section-group">
-        <h3>Examinations</h3>
-        <div class="grid">
-            <div class="card">
-                <img src="exam1.jpg" alt="Midterm Exam" onclick="viewImage('exam1.jpg')">
-                <div class="card-title">Midterm Exam</div>
-                <div class="btn-group">
-                    <button onclick="viewImage('exam1.jpg')">View</button>
-                    <button class="download" onclick="downloadFile('exam1.jpg', 'Midterm_Exam.jpg')">Download</button>
+        <section id="exams" class="content-panel">
+            <h2>Examinations</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="exam1.jpg" alt="Exam 1">
+                    <div class="card-title">Midterm Exam</div>
+                    <div class="btn-group">
+                        <a href="exam1.jpg" target="_blank" class="action-btn">View</a>
+                        <a href="exam1.jpg" download class="action-btn secondary">Download</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Laboratory Activities Section -->
-    <div class="section-group">
-        <h3>Laboratory Activities</h3>
-        <div class="grid">
-            <div class="card">
-                <img src="lab1.jpg" alt="Laboratory Activity 1" onclick="viewImage('lab1.jpg')">
-                <div class="card-title">Laboratory Activity 1</div>
-                <div class="btn-group">
-                    <button onclick="viewImage('lab1.jpg')">View</button>
-                    <button class="download" onclick="downloadFile('lab1.jpg', 'Laboratory_Activity_1.jpg')">Download</button>
+        <section id="labs" class="content-panel">
+            <h2>Laboratory Activities</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="lab1.jpg" alt="Lab 1">
+                    <div class="card-title">Laboratory Activity 1</div>
+                    <div class="btn-group">
+                        <a href="lab1.jpg" target="_blank" class="action-btn">View</a>
+                        <a href="lab1.jpg" download class="action-btn secondary">Download</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Projects Section -->
-    <div class="section-group">
-        <h3>Projects</h3>
-        <div class="grid">
-            <div class="card">
-                <img src="project1.jpg" alt="Final Project Prototype" onclick="viewImage('project1.jpg')">
-                <div class="card-title">Final Project Prototype</div>
-                <div class="btn-group">
-                    <button onclick="viewImage('project1.jpg')">View</button>
-                    <button class="download" onclick="downloadFile('project1.jpg', 'Final_Project_Prototype.jpg')">Download</button>
+        <section id="projects" class="content-panel">
+            <h2>Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="project1.jpg" alt="Project 1">
+                    <div class="card-title">Final Project Prototype</div>
+                    <div class="btn-group">
+                    <a href = "project1.jpg" target="_blank" class="action-btn">View</a>
+                        <a href="project1.jpg" download class="action-btn secondary">Download</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+    </div>
+<div id="previewModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); justify-content:center; align-items:center; padding:1rem;" onclick="closePreview()">
+    <span style="position:absolute; top:15px; right:25px; color:#fff; font-size:35px; font-weight:bold; cursor:pointer;">&times;</span>
+    <div style="max-width:90%; max-height:85vh; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.3); background-color:#fff; padding:0.5rem;" onclick="event.stopPropagation()">
+        <div id="modalBody"></div>
     </div>
 </div>
+    <footer>
+        <p>&copy; 2026 Ma. Carmela L. Dela Peña. All Rights Reserved.</p>
+        
+    </footer>
 
-<!-- Modal Target Container -->
-<div id="modal" onclick="closeModal()">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <img id="modalImg" src="" onclick="event.stopPropagation()">
-</div>
-
-<script>
-     function openTab(tabId) {
+   <script>
+    function openTab(tabId) {
         const panels = document.querySelectorAll('.content-panel');
         const tabs = document.querySelectorAll('.tab-btn');
         
@@ -329,4 +322,3 @@
 </script>
 </body>
 </html>
-    
