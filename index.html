@@ -5,138 +5,175 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ma. Carmela L. Dela Peña | Portfolio</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f5f0;
-            color: #4a3e3d;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        header {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-        header h1 {
-            color: #8b7355;
-            margin: 0 0 5px 0;
-        }
-        header p {
-            color: #c3b091;
-            margin: 0;
-            font-weight: bold;
-        }
-        .about {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 15px;
-            margin-bottom: 25px;
-            border-bottom: 1px solid #e0dcd3;
-            padding-bottom: 20px;
-        }
-        .about img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #c3b091;
-        }
-        .about h3 {
-            color: #8b7355;
-            margin: 0 0 5px 0;
-        }
-        .school {
-            font-weight: bold;
-            color: #c3b091;
-            font-size: 14px;
-            margin-bottom: 8px;
-        }
-        .tabs {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .tab-btn {
-            padding: 8px 14px;
-            border: none;
-            background: #c3b091;
-            color: #fff;
-            cursor: pointer;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-        .tab-btn.active {
-            background: #8b7355;
-        }
-        .panel {
-            display: none;
-        }
-        .panel.active {
-            display: block;
-        }
-        .card {
-            background: #fdfcf7;
-            border: 1px solid #e0dcd3;
-            padding: 12px 15px;
-            border-radius: 6px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .btn-group {
-            display: flex;
-            gap: 6px;
-        }
-        button {
-            padding: 6px 12px;
-            cursor: pointer;
-            border: 1px solid #8b7355;
-            background: #fff;
-            color: #8b7355;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-        button:hover, button.download {
-            background: #8b7355;
-            color: #fff;
-        }
-        #modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        #modal img {
-            max-width: 90%;
-            max-height: 80vh;
-            border-radius: 4px;
-        }
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: #fff;
-            font-size: 35px;
-            cursor: pointer;
-        }
+       /* Base page configuration para sa natural continuous scrolling */
+html, body {
+    min-height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f5f0; /* Light Cream Background */
+    color: #4a3e3d;
+    margin: 0;
+    padding: 15px;
+}
+.container {
+    max-width: 800px;
+    margin: 10px auto 30px auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+header h1 {
+    color: #8b7355; /* Light Brown */
+    margin: 0 0 5px 0;
+    font-size: 26px;
+}
+header p {
+    color: #c3b091; /* Khaki */
+    margin: 0;
+    font-weight: bold;
+    font-size: 15px;
+}
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e0dcd3;
+    padding-bottom: 20px;
+}
+.about img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #c3b091;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+.about h3 {
+    color: #8b7355;
+    margin: 0 0 5px 0;
+}
+.school {
+    font-weight: bold;
+    color: #c3b091;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+/* Layout para sa bawat section */
+.section-group {
+    margin-bottom: 35px;
+}
+.section-group h3 {
+    color: #8b7355;
+    font-size: 20px;
+    margin: 0 0 15px 0;
+    border-bottom: 1px solid #e0dcd3;
+    padding-bottom: 6px;
+}
+
+/* Pabox (Grid) Layout base sa screenshot */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+.card {
+    background: #fdfcf7;
+    border: 1px solid #e0dcd3;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #e0dcd3;
+    cursor: pointer;
+}
+.card-title {
+    font-weight: bold;
+    color: #4a3e3d;
+    font-size: 15px;
+}
+.btn-group {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+}
+button {
+    flex: 1;
+    padding: 8px 12px;
+    cursor: pointer;
+    border: 1px solid #8b7355;
+    background: #ffffff;
+    color: #8b7355;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 13px;
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+button:hover, button.download {
+    background: #8b7355;
+    color: #ffffff;
+}
+button.download:hover {
+    background: #6e5a42;
+    border-color: #6e5a42;
+}
+
+/* Universal Fullscreen Modal Overlay */
+#modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 10px;
+    box-sizing: border-box;
+}
+#modal img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    object-fit: contain;
+}
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (min-width: 600px) {
+    body { padding: 30px; }
+    .about { flex-direction: row; text-align: left; padding-bottom: 20px; }
+}
+
     </style>
 </head>
 <body>
@@ -223,17 +260,19 @@
     <img id="modalImg" src="">
 </div>
 <script>
-   function viewImage(url) {
+    function viewImage(url) {
     document.getElementById('modalImg').src = url;
     document.getElementById('modal').style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Pinipigilan ang pag-scroll ng background page habang nakabukas ang modal
 }
 
 function closeModal() {
     document.getElementById('modal').style.display = 'none';
     document.getElementById('modalImg').src = '';
+    document.body.style.overflow = 'auto'; // Ibinabalik ang scroll ng background page
 }
 
-// Universal Force Download Engine para sa lahat ng Android, iPhone, at PC devices
+// Universal Force Download Engine para sa Android, iOS (iPhone), at PC
 function downloadFile(url, filename) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
@@ -253,6 +292,7 @@ function downloadFile(url, filename) {
         reader.readAsDataURL(blob);
     };
     xhr.onerror = function() {
+        // Fallback option kapag may browser level file permission issue
         var fallbackLink = document.createElement('a');
         fallbackLink.href = url;
         fallbackLink.download = filename;
@@ -261,6 +301,7 @@ function downloadFile(url, filename) {
     };
     xhr.send();
 }
+
 </script>
 
 </body>
