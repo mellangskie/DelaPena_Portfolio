@@ -5,33 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ma. Carmela L. Dela Peña | Portfolio</title>
     <style>
+        /* Base page configuration for natural continuous scrolling */
+        html, body {
+            min-height: 100%;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
         body {
             font-family: Arial, sans-serif;
-            background-color: #f7f5f0;
+            background-color: #f7f5f0; /* Light Cream Background */
             color: #4a3e3d;
             margin: 0;
-            padding: 20px;
+            padding: 15px;
         }
         .container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 10px auto 30px auto;
             background: #ffffff;
             padding: 25px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
         header {
             text-align: center;
             margin-bottom: 25px;
         }
         header h1 {
-            color: #8b7355;
+            color: #8b7355; /* Light Brown */
             margin: 0 0 5px 0;
+            font-size: 26px;
         }
         header p {
-            color: #c3b091;
+            color: #c3b091; /* Khaki */
             margin: 0;
             font-weight: bold;
+            font-size: 15px;
         }
         .about {
             display: flex;
@@ -39,7 +47,7 @@
             align-items: center;
             text-align: center;
             gap: 15px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             border-bottom: 1px solid #e0dcd3;
             padding-bottom: 20px;
         }
@@ -49,6 +57,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid #c3b091;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
         }
         .about h3 {
             color: #8b7355;
@@ -60,58 +69,83 @@
             font-size: 14px;
             margin-bottom: 8px;
         }
-        .tabs {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
+        
+        /* Unified Section Layout Rules */
+        .section-group {
+            margin-bottom: 35px;
         }
-        .tab-btn {
-            padding: 8px 14px;
-            border: none;
-            background: #c3b091;
-            color: #fff;
-            cursor: pointer;
-            border-radius: 4px;
-            font-weight: bold;
+        .section-group h3 {
+            color: #8b7355;
+            font-size: 20px;
+            margin: 0 0 15px 0;
+            border-bottom: 1px solid #e0dcd3;
+            padding-bottom: 6px;
         }
-        .tab-btn.active {
-            background: #8b7355;
-        }
-        .panel {
-            display: none;
-        }
-        .panel.active {
-            display: block;
+
+        /* Box Layout Template Pattern based on the desktop reference style */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
         }
         .card {
             background: #fdfcf7;
             border: 1px solid #e0dcd3;
-            padding: 12px 15px;
-            border-radius: 6px;
-            margin-bottom: 10px;
+            border-radius: 8px;
+            padding: 15px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #e0dcd3;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+        .card img:hover {
+            opacity: 0.9;
+        }
+        .card-title {
+            font-weight: bold;
+            color: #4a3e3d;
+            font-size: 15px;
         }
         .btn-group {
             display: flex;
-            gap: 6px;
+            gap: 8px;
+            margin-top: auto;
         }
         button {
-            padding: 6px 12px;
+            flex: 1;
+            padding: 8px 12px;
             cursor: pointer;
             border: 1px solid #8b7355;
-            background: #fff;
+            background: #ffffff;
             color: #8b7355;
             border-radius: 4px;
             font-weight: bold;
+            font-size: 13px;
+            transition: all 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
         }
-        button:hover, button.download {
+        button:hover {
             background: #8b7355;
-            color: #fff;
+            color: #ffffff;
         }
+        button.download {
+            background: #8b7355;
+            color: #ffffff;
+        }
+        button.download:hover {
+            background: #6e5a42;
+            border-color: #6e5a42;
+        }
+
+        /* Responsive Immersive Target View Overlays */
         #modal {
             display: none;
             position: fixed;
@@ -119,23 +153,40 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.85);
             justify-content: center;
             align-items: center;
-            z-index: 1000;
+            z-index: 2000;
+            padding: 10px;
+            box-sizing: border-box;
         }
         #modal img {
-            max-width: 90%;
+            max-width: 100%;
             max-height: 80vh;
             border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            object-fit: contain;
         }
         .close {
             position: absolute;
-            top: 20px;
-            right: 30px;
-            color: #fff;
-            font-size: 35px;
+            top: 15px;
+            right: 20px;
+            color: #ffffff;
+            font-size: 36px;
+            font-weight: bold;
             cursor: pointer;
+            z-index: 2100;
+        }
+
+        @media (min-width: 600px) {
+            body {
+                padding: 30px;
+            }
+            .about {
+                flex-direction: row;
+                text-align: left;
+                padding-bottom: 20px;
+            }
         }
     </style>
 </head>
@@ -156,114 +207,114 @@
         </div>
     </div>
 
-    <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab(event, 'quizzes')">Quizzes</button>
-        <button class="tab-btn" onclick="switchTab(event, 'exams')">Examinations</button>
-        <button class="tab-btn" onclick="switchTab(event, 'labs')">Laboratory Activities</button>
-        <button class="tab-btn" onclick="switchTab(event, 'projects')">Projects</button>
-    </div>
-
-    <div id="quizzes" class="panel active">
-        <div class="card">
-            <span>Quiz 1</span>
-            <div class="btn-group">
-                <button onclick="viewImage('quiz1.jpeg')">View</button>
-                <button class="download" onclick="downloadFile('quiz1.jpeg', 'Quiz_1.jpeg')">Download</button>
+    <!-- Pila ng Sections pababa para sa tuluy-tuloy na pag-scroll -->
+    
+    <!-- Quizzes Section -->
+    <div class="section-group">
+        <h3>Quizzes</h3>
+        <div class="grid">
+            <div class="card">
+                <img src="quiz1.jpeg" alt="Quiz 1" onclick="viewImage('quiz1.jpeg')">
+                <div class="card-title">Quiz 1</div>
+                <div class="btn-group">
+                    <button onclick="viewImage('quiz1.jpeg')">View</button>
+                    <button class="download" onclick="downloadFile('quiz1.jpeg', 'Quiz_1.jpeg')">Download</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="exams" class="panel">
-        <div class="card">
-            <span>Midterm Exam</span>
-            <div class="btn-group">
-                <button onclick="viewImage('exam1.jpg')">View</button>
-                <button class="download" onclick="downloadFile('exam1.jpg', 'Midterm_Exam.jpg')">Download</button>
+    <!-- Examinations Section -->
+    <div class="section-group">
+        <h3>Examinations</h3>
+        <div class="grid">
+            <div class="card">
+                <img src="exam1.jpg" alt="Midterm Exam" onclick="viewImage('exam1.jpg')">
+                <div class="card-title">Midterm Exam</div>
+                <div class="btn-group">
+                    <button onclick="viewImage('exam1.jpg')">View</button>
+                    <button class="download" onclick="downloadFile('exam1.jpg', 'Midterm_Exam.jpg')">Download</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="labs" class="panel">
-        <div class="card">
-            <span>Laboratory Activity 1</span>
-            <div class="btn-group">
-                <button onclick="viewImage('lab1.jpg')">View</button>
-                <button class="download" onclick="downloadFile('lab1.jpg', 'Lab_1.jpg')">Download</button>
+    <!-- Laboratory Activities Section -->
+    <div class="section-group">
+        <h3>Laboratory Activities</h3>
+        <div class="grid">
+            <div class="card">
+                <img src="lab1.jpg" alt="Laboratory Activity 1" onclick="viewImage('lab1.jpg')">
+                <div class="card-title">Laboratory Activity 1</div>
+                <div class="btn-group">
+                    <button onclick="viewImage('lab1.jpg')">View</button>
+                    <button class="download" onclick="downloadFile('lab1.jpg', 'Laboratory_Activity_1.jpg')">Download</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="projects" class="panel">
-        <div class="card">
-            <span>Final Project Prototype</span>
-            <div class="btn-group">
-                <button onclick="viewImage('project1.jpg')">View</button>
-                <button class="download" onclick="downloadFile('project1.jpg', 'Project.jpg')">Download</button>
+    <!-- Projects Section -->
+    <div class="section-group">
+        <h3>Projects</h3>
+        <div class="grid">
+            <div class="card">
+                <img src="project1.jpg" alt="Final Project Prototype" onclick="viewImage('project1.jpg')">
+                <div class="card-title">Final Project Prototype</div>
+                <div class="btn-group">
+                    <button onclick="viewImage('project1.jpg')">View</button>
+                    <button class="download" onclick="downloadFile('project1.jpg', 'Final_Project_Prototype.jpg')">Download</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Modal Target Container -->
 <div id="modal" onclick="closeModal()">
-    <span class="close">&times;</span>
-    <img id="modalImg" src="">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modalImg" src="" onclick="event.stopPropagation()">
 </div>
 
 <script>
-    function switchTab(evt, tabId) {
-        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.getElementById(tabId).classList.add('active');
-        evt.currentTarget.classList.add('active');
-    }
-
     function viewImage(url) {
         document.getElementById('modalImg').src = url;
         document.getElementById('modal').style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Locks underlying page context
     }
 
     function closeModal() {
         document.getElementById('modal').style.display = 'none';
         document.getElementById('modalImg').src = '';
+        document.body.style.overflow = 'auto'; // Restores layout scroll context
     }
 
-
+    // Force Download implementation architecture engineered to bypass mobile OS display filters
     function downloadFile(url, filename) {
-        fetch(url)
-            .then(res => {
-                if (!res.ok) throw new Error('Network error');
-                return res.blob();
-            })
-            .then(blob => {
-                const link = document.createElement('a');
-                const objectUrl = URL.createObjectURL(blob);
-                
-                link.href = objectUrl;
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.responseType = "blob";
+        xhr.onload = function() {
+            var blob = xhr.response;
+            var reader = new FileReader();
+            reader.onloadend = function() {
+                var link = document.createElement('a');
+                link.href = reader.result;
                 link.download = filename;
-                
-              
-                link.target = '_blank'; 
+                link.style.display = 'none';
                 document.body.appendChild(link);
                 link.click();
-                
-               
-                setTimeout(() => {
-                    document.body.removeChild(link);
-                    URL.revokeObjectURL(objectUrl);
-                }, 100);
-            })
-            .catch(() => {
-              
-                const fallbackLink = document.createElement('a');
-                fallbackLink.href = url;
-                fallbackLink.download = filename;
-                fallbackLink.target = '_blank';
-                fallbackLink.click();
-            });
-    }
-</script>
-
-</body>
-</html>
-
-
+                document.body.removeChild(link);
+            }
+            reader.readAsDataURL(blob);
+        };
+        xhr.onerror = function() {
+            var fallbackLink = document.createElement('a');
+            fallbackLink.href = url;
+            fallbackLink.download = filename;
+fallbackLink.target = '_blank';
+fallbackLink.click();
+};
+xhr.send();
+}
+    <script>
