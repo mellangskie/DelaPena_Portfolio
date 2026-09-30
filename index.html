@@ -298,30 +298,31 @@
             </div>
         </section>
     <footer>
-        <p>&copy; 2026 Ma. Carmela L. Dela Peña. All Rights Reserved.</p>
+     
         
     </footer>
 
      <script>
-        // Tab display dynamic panel filter configuration
-        function switchTab(evt, tabId) {
+       function switchTab(evt, tabId) {
             document.querySelectorAll('.content-panel').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
             evt.currentTarget.classList.add('active');
         }
 
+        // Rekta view gamit ang native modal viewer
         function previewFile(url) {
             const modal = document.getElementById('previewModal');
             const body = document.getElementById('modalBody');
             const extension = url.split('.').pop().toLowerCase();
 
+            // Kung imahe, itatampok sa malinis na popup modal frame
             if (['jpg', 'jpeg', 'png', 'gif', 'jfif', 'webp'].includes(extension)) {
                 body.innerHTML = `<img src="${url}" style="width:100%; height:auto; max-height:80vh; object-fit:contain; display:block; border-radius:4px;" alt="Preview">`;
                 modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // Locks body frame scrolling
+                document.body.style.overflow = 'hidden'; 
             } else {
-                // PDF at Documents preview window trigger rule for phone browser boundaries
+                // Kung file naman gaya ng PDF, bubuksan agad sa safe browser native tab viewer
                 window.open(url, '_blank');
             }
         }
@@ -329,50 +330,22 @@
         function closePreview() {
             document.getElementById('previewModal').style.display = 'none';
             document.getElementById('modalBody').innerHTML = '';
-            document.body.style.overflow = 'auto'; // Restores layout scroll context
+            document.body.style.overflow = 'auto'; 
         }
 
-        // Force Download algorithm engine configured to bypass core browser filters on iOS and Android
+        // Pinasimpleng Download function na gumagamit ng native device trigger
         function forceDownload(event, url, filename) {
-            event.preventDefault();
+            // Hindi na natin gagamitin ang fetch/XHR para hindi harangan ng seguridad ng CP
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
             
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", url, true);
-            xhr.responseType = "blob";
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    var blob = xhr.response;
-                    var reader = new FileReader();
-                    reader.onloadend = function() {
-                        var link = document.createElement('a');
-                        link.href = reader.result;
-                        link.download = filename;
-                        link.style.display = 'none';
-                        link.target = '_blank'; // Necessary support hook for mobile browsers over network
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
-                    }
-                    reader.readAsDataURL(blob);
-                } else {
-                    executeFallbackDownload(url, filename);
-                }
-            };
-            xhr.onerror = function() {
-                executeFallbackDownload(url, filename);
-            };
-            xhr.send();
-        }
-
-        function executeFallbackDownload(url, filename) {
-            const fallbackA = document.createElement('a');
-            fallbackA.href = url;
-            fallbackA.download = filename;
-            fallbackA.target = '_blank';
-            document.body.appendChild(fallbackA);
-            fallbackA.click();
-            document.body.removeChild(fallbackA);
-        }
+            // Ang target="_blank" ay mahalaga para sa Chrome at Safari sa CP upang piliting i-save ang file
+            link.target = '_blank'; 
+            
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
     </script>
 
 </body>
