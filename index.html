@@ -5,40 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ma. Carmela L. Dela Peña | Portfolio</title>
     <style>
-        html, body {
-            min-height: 100%;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-        }
         body {
             font-family: Arial, sans-serif;
-            background-color: #f7f5f0; /* Light Cream Background */
+            background-color: #f7f5f0;
             color: #4a3e3d;
             margin: 0;
-            padding: 15px;
+            padding: 20px;
         }
         .container {
             max-width: 800px;
-            margin: 10px auto 30px auto;
+            margin: 0 auto;
             background: #ffffff;
             padding: 25px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
         header {
             text-align: center;
             margin-bottom: 25px;
         }
         header h1 {
-            color: #8b7355; /* Light Brown */
+            color: #8b7355;
             margin: 0 0 5px 0;
-            font-size: 26px;
         }
         header p {
-            color: #c3b091; /* Khaki */
+            color: #c3b091;
             margin: 0;
             font-weight: bold;
-            font-size: 15px;
         }
         .about {
             display: flex;
@@ -46,17 +39,16 @@
             align-items: center;
             text-align: center;
             gap: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             border-bottom: 1px solid #e0dcd3;
             padding-bottom: 20px;
         }
         .about img {
-            width: 150px; /* Sakto lang na sukat ng profile */
-            height: 150px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid #c3b091;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
         }
         .about h3 {
             color: #8b7355;
@@ -68,120 +60,58 @@
             font-size: 14px;
             margin-bottom: 8px;
         }
-        
-        /* Modern Segmented Tab Buttons */
         .tabs {
             display: flex;
             gap: 8px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
             justify-content: center;
         }
         .tab-btn {
-            padding: 10px 16px;
+            padding: 8px 14px;
             border: none;
             background: #c3b091;
-            color: #ffffff;
+            color: #fff;
             cursor: pointer;
             border-radius: 4px;
             font-weight: bold;
-            font-size: 13px;
-            transition: background 0.2s ease;
         }
-        .tab-btn.active, .tab-btn:hover {
+        .tab-btn.active {
             background: #8b7355;
         }
-
-        /* Section Workspace Configuration */
-        .section-group {
-            display: none; /* Nakatago ang content sa simula */
+        .panel {
+            display: none;
         }
-        .section-group.active {
-            display: block; /* Lalabas lang kapag pinindot ang tab */
-        }
-        .section-group h3 {
-            color: #8b7355;
-            font-size: 20px;
-            margin: 0 0 15px 0;
-            border-bottom: 1px solid #e0dcd3;
-            padding-bottom: 6px;
-        }
-
-        /* Pabox (Grid) Configuration para sa maramihang cards */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 20px;
+        .panel.active {
+            display: block;
         }
         .card {
             background: #fdfcf7;
             border: 1px solid #e0dcd3;
-            border-radius: 8px;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .card img, .card .file-box {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
+            padding: 12px 15px;
             border-radius: 6px;
-            border: 1px solid #e0dcd3;
-            box-sizing: border-box;
-        }
-        .card img {
-            cursor: pointer;
-            transition: opacity 0.2s ease;
-        }
-        .card img:hover {
-            opacity: 0.9;
-        }
-        .card .file-box {
-            background-color: #f8f6f0;
+            margin-bottom: 10px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            color: #8b7355;
-            cursor: pointer;
-        }
-        .card-title {
-            font-weight: bold;
-            color: #4a3e3d;
-            font-size: 15px;
         }
         .btn-group {
             display: flex;
-            gap: 8px;
-            margin-top: auto;
+            gap: 6px;
         }
         button {
-            flex: 1;
-            padding: 8px 12px;
+            padding: 6px 12px;
             cursor: pointer;
             border: 1px solid #8b7355;
-            background: #ffffff;
+            background: #fff;
             color: #8b7355;
             border-radius: 4px;
             font-weight: bold;
-            font-size: 13px;
-            transition: all 0.2s ease;
         }
-        button:hover {
+        button:hover, button.download {
             background: #8b7355;
-            color: #ffffff;
+            color: #fff;
         }
-        button.download {
-            background: #8b7355;
-            color: #ffffff;
-        }
-        button.download:hover {
-            background: #6e5a42;
-            border-color: #6e5a42;
-        }
-
-        /* Immersive Responsive Preview Stage Overlay */
         #modal {
             display: none;
             position: fixed;
@@ -189,34 +119,23 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.85);
+            background: rgba(0,0,0,0.8);
             justify-content: center;
             align-items: center;
-            z-index: 2000;
-            padding: 10px;
-            box-sizing: border-box;
+            z-index: 1000;
         }
         #modal img {
-            max-width: 100%;
+            max-width: 90%;
             max-height: 80vh;
             border-radius: 4px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            object-fit: contain;
         }
         .close {
             position: absolute;
-            top: 15px;
-            right: 20px;
-            color: #ffffff;
-            font-size: 36px;
-            font-weight: bold;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 35px;
             cursor: pointer;
-            z-index: 2100;
-        }
-
-        @media (min-width: 600px) {
-            body { padding: 30px; }
-            .about { flex-direction: row; text-align: left; padding-bottom: 20px; }
         }
     </style>
 </head>
@@ -237,120 +156,62 @@
         </div>
     </div>
 
- 
     <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(event, 'quizzes')">Quizzes</button>
-        <button class="tab-btn" onclick="switchTab(event, 'activities')">Activities</button>
         <button class="tab-btn" onclick="switchTab(event, 'exams')">Examinations</button>
+        <button class="tab-btn" onclick="switchTab(event, 'labs')">Laboratory Activities</button>
         <button class="tab-btn" onclick="switchTab(event, 'projects')">Projects</button>
     </div>
 
-   
-    <div id="quizzes" class="section-group active">
-        <h3>Quizzes</h3>
-        <div class="grid">
-            <!-- Quiz 1 -->
-            <div class="card">
-                <img src="quiz1.jpeg" alt="Quiz 1" onclick="viewImage('quiz1.jpeg')">
-                <div class="card-title">Quiz 1</div>
-                <div class="btn-group">
-                    <button onclick="viewImage('quiz1.jpeg')">View</button>
-                    <button class="download" onclick="downloadFile('quiz1.jpeg', 'Quiz_1.jpeg')">Download</button>
-                </div>
-            </div>
-            <!-- Quiz 2 -->
-            <div class="card">
-                <img src="quiz2.jpeg" alt="Quiz 2" onclick="viewImage('quiz2.jpeg')">
-                <div class="card-title">Quiz 2</div>
-                <div class="btn-group">
-                    <button onclick="viewImage('quiz2.jpeg')">View</button>
-                    <button class="download" onclick="downloadFile('quiz2.jpeg', 'Quiz_2.jpeg')">Download</button>
-                </div>
+    <div id="quizzes" class="panel active">
+        <div class="card">
+            <span>Quiz 1</span>
+            <div class="btn-group">
+                <button onclick="viewImage('quiz1.jpeg')">View</button>
+                <button class="download" onclick="downloadFile('quiz1.jpeg', 'Quiz_1.jpeg')">Download</button>
             </div>
         </div>
     </div>
 
-   
-    <div id="activities" class="section-group">
-        <h3>Activities</h3>
-        <div class="grid">
-            <!-- Activity 1 -->
-            <div class="card">
-                <div class="file-box" onclick="window.open('activity1.pdf', '_blank')">
-                    <span style="font-size: 45px; margin-bottom: 5px;">📄</span>
-                    <span style="font-weight: bold; font-size: 11px; color: #c3b091; letter-spacing: 0.5px;">VIEW DOCUMENT</span>
-                </div>
-                <div class="card-title">Activity 1</div>
-                <div class="btn-group">
-                    <button onclick="window.open('activity1.pdf', '_blank')">View</button>
-                    <button class="download" onclick="downloadFile('activity1.pdf', 'Activity_1.pdf')">Download</button>
-                </div>
-            </div>
-            <!-- Activity 2 -->
-            <div class="card">
-                <div class="file-box" onclick="window.open('activity2.pdf', '_blank')">
-                    <span style="font-size: 45px; margin-bottom: 5px;">📄</span>
-                    <span style="font-weight: bold; font-size: 11px; color: #c3b091; letter-spacing: 0.5px;">VIEW DOCUMENT</span>
-                </div>
-                <div class="card-title">Activity 2</div>
-                <div class="btn-group">
-                    <button onclick="window.open('activity2.pdf', '_blank')">View</button>
-                    <button class="download" onclick="downloadFile('activity2.pdf', 'Activity_2.pdf')">Download</button>
-                </div>
+    <div id="exams" class="panel">
+        <div class="card">
+            <span>Midterm Exam</span>
+            <div class="btn-group">
+                <button onclick="viewImage('exam1.jpg')">View</button>
+                <button class="download" onclick="downloadFile('exam1.jpg', 'Midterm_Exam.jpg')">Download</button>
             </div>
         </div>
     </div>
 
-
-    <div id="exams" class="section-group">
-        <h3>Examinations</h3>
-        <div class="grid">
-            <!-- Midterm Exam Card -->
-            <div class="card">
-                <img src="exam1.jpg" alt="Midterm Exam" onclick="viewImage('exam1.jpg')">
-                <div class="card-title">Midterm Exam</div>
-                <div class="btn-group">
-                    <button onclick="viewImage('exam1.jpg')">View</button>
-                    <button class="download" onclick="downloadFile('exam1.jpg', 'Midterm_Exam.jpg')">Download</button>
-                </div>
-            </div>
-            <!-- Final Exam Card -->
-            <div class="card">
-                <img src="exam2.jpg" alt="Final Exam" onclick="viewImage('exam2.jpg')">
-                <div class="card-title">Final Exam</div>
-                <div class="btn-group">
-                    <button onclick="viewImage('exam2.jpg')">View</button>
-                    <button class="download" onclick="downloadFile('exam2.jpg', 'Final_Exam.jpg')">Download</button>
-                </div>
+    <div id="labs" class="panel">
+        <div class="card">
+            <span>Laboratory Activity 1</span>
+            <div class="btn-group">
+                <button onclick="viewImage('lab1.jpg')">View</button>
+                <button class="download" onclick="downloadFile('lab1.jpg', 'Lab_1.jpg')">Download</button>
             </div>
         </div>
     </div>
 
-    <div id="projects" class="section-group">
-        <h3>Projects</h3>
-        <div class="grid">
-            <div class="card">
-                <img src="project1.jpg" alt="Final Project Prototype" onclick="viewImage('project1.jpg')">
-                <div class="card-title">Final Project Prototype</div>
-                <div class="btn-group">
-                    <button onclick="viewImage('project1.jpg')">View</button>
-                    <button class="download" onclick="downloadFile('project1.jpg', 'Final_Project_Prototype.jpg')">Download</button>
-                </div>
+    <div id="projects" class="panel">
+        <div class="card">
+            <span>Final Project Prototype</span>
+            <div class="btn-group">
+                <button onclick="viewImage('project1.jpg')">View</button>
+                <button class="download" onclick="downloadFile('project1.jpg', 'Project.jpg')">Download</button>
             </div>
         </div>
     </div>
 </div>
 
-
 <div id="modal" onclick="closeModal()">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <img id="modalImg" src="" onclick="event.stopPropagation()">
+    <span class="close">&times;</span>
+    <img id="modalImg" src="">
 </div>
 
 <script>
-
     function switchTab(evt, tabId) {
-        document.querySelectorAll('.section-group').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         document.getElementById(tabId).classList.add('active');
         evt.currentTarget.classList.add('active');
@@ -359,51 +220,46 @@
     function viewImage(url) {
         document.getElementById('modalImg').src = url;
         document.getElementById('modal').style.display = 'flex';
-        document.body.style.overflow = 'hidden'; 
     }
 
     function closeModal() {
         document.getElementById('modal').style.display = 'none';
         document.getElementById('modalImg').src = '';
-        document.body.style.overflow = 'auto'; 
     }
 
-  
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", url, true);
-        xhr.responseType = "blob";
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                var blob = xhr.response;
-                var reader = new FileReader();
-                reader.onloadend = function() {
-                    var link = document.createElement('a');
-                    link.href = reader.result;
-                    link.download = filename;
-                    link.style.display = 'none';
-                    document.body.appendChild(link);
-                    link.click();
+
+    function downloadFile(url, filename) {
+        fetch(url)
+            .then(res => {
+                if (!res.ok) throw new Error('Network error');
+                return res.blob();
+            })
+            .then(blob => {
+                const link = document.createElement('a');
+                const objectUrl = URL.createObjectURL(blob);
+                
+                link.href = objectUrl;
+                link.download = filename;
+                
+              
+                link.target = '_blank'; 
+                document.body.appendChild(link);
+                link.click();
+                
+               
+                setTimeout(() => {
                     document.body.removeChild(link);
-                }
-                reader.readAsDataURL(blob);
-            } else {
-                triggerFallback(url, filename);
-            }
-        };
-        xhr.onerror = function() {
-            triggerFallback(url, filename);
-        };
-        xhr.send();
-    }
-
-    function triggerFallback(url, filename) {
-        var fallbackLink = document.createElement('a');
-        fallbackLink.href = url;
-        fallbackLink.download = filename;
-        fallbackLink.target = '_blank';
-        document.body.appendChild(fallbackLink);
-        fallbackLink.click();
-        document.body.removeChild(fallbackLink);
+                    URL.revokeObjectURL(objectUrl);
+                }, 100);
+            })
+            .catch(() => {
+              
+                const fallbackLink = document.createElement('a');
+                fallbackLink.href = url;
+                fallbackLink.download = filename;
+                fallbackLink.target = '_blank';
+                fallbackLink.click();
+            });
     }
 </script>
 
