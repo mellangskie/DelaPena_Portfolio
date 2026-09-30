@@ -178,129 +178,168 @@ button.download:hover {
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>Ma. Carmela L. Dela Peña</h1>
-        <p>Computer Science Student</p>
-    </header>
-
-    <div class="about">
-        <img src="mella.jpg" alt="Profile">
-        <div>
-            <h3>About Me</h3>
-            <div class="school">BSCS-3B | Cavite State University - Silang Campus</div>
-            <p>A dedicated Computer Science student with a big dream to become successful and give my family a wonderful life. I love dancing and reading stories on wattpad. I will do my best to reach my goals.</p>
-        </div>
-    </div>
-
-    <!-- Quizzes Section -->
-    <div class="section-group" style="margin-bottom: 25px;">
-        <h3 style="color: #8b7355; margin-bottom: 10px;">Quizzes</h3>
-        <div class="card" style="background: #fdfcf7; border: 1px solid #e0dcd3; padding: 15px; border-radius: 6px; margin-bottom: 10px;">
-            <!-- Ibinabalik ang Image Preview Thumbnail -->
-            <img src="quiz1.jpeg" alt="Quiz 1 Preview" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; border: 1px solid #e0dcd3; margin-bottom: 10px; display: block;">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-                <span style="font-weight: bold;">Quiz 1</span>
+ <div class="section-group">
+        <h3>Quizzes</h3>
+        <div class="grid">
+            <div class="card">
+                <img src="quiz1.jpeg" alt="Quiz 1" onclick="viewImage('quiz1.jpeg')">
+                <div class="card-title">Quiz 1</div>
                 <div class="btn-group">
-                    <button onclick="viewImage('quiz1.jpeg')">View Full</button>
+                    <button onclick="viewImage('quiz1.jpeg')">View</button>
                     <button class="download" onclick="downloadFile('quiz1.jpeg', 'Quiz_1.jpeg')">Download</button>
                 </div>
             </div>
+            <div class="card">
+                <img src="quiz2.jpeg" alt="Quiz 2" onclick="viewImage('quiz2.jpeg')">
+                <div class="card-title">Quiz 2</div>
+                <div class="btn-group">
+                    <button onclick="viewImage('quiz2.jpeg')">View</button>
+                    <button class="download" onclick="downloadFile('quiz2.jpeg', 'Quiz_2.jpeg')">Download</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-group">
+        <h3>Activities</h3>
+        <div class="grid">
+            <!-- Activity 1 -->
+            <div class="card">
+                <div class="file-box" style="width: 100%; height: 200px; background-color: #f8f6f0; border-radius: 6px; border: 1px solid #e0dcd3; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #8b7355; cursor: pointer; box-sizing: border-box;" onclick="window.open('activity1.pdf', '_blank')">
+                    <span style="font-size: 50px; margin-bottom: 5px;">📄</span>
+                    <span style="font-weight: bold; font-size: 12px; color: #c3b091; letter-spacing: 0.5px;">VIEW DOCUMENT</span>
+                </div>
+                <div class="card-title" style="font-weight: bold; color: #4a3e3d; font-size: 15px; margin-top: 12px;">Activity 1</div>
+                <div class="btn-group" style="display: flex; gap: 8px; margin-top: auto;">
+                    <button onclick="window.open('activity1.pdf', '_blank')" style="flex: 1; padding: 8px 12px; cursor: pointer; border: 1px solid #8b7355; background: #ffffff; color: #8b7355; border-radius: 4px; font-weight: bold; font-size: 13px;">View</button>
+                    <button class="download" onclick="downloadFile('activity1.pdf', 'Activity_1.pdf')" style="flex: 1; padding: 8px 12px; cursor: pointer; border: 1px solid #8b7355; background: #8b7355; color: #ffffff; border-radius: 4px; font-weight: bold; font-size: 13px;">Download</button>
+                </div>
+            </div>
+
+            <!-- Activity 2 -->
+            <div class="card">
+                <div class="file-box" style="width: 100%; height: 200px; background-color: #f8f6f0; border-radius: 6px; border: 1px solid #e0dcd3; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #8b7355; cursor: pointer; box-sizing: border-box;" onclick="window.open('activity2.pdf', '_blank')">
+                    <span style="font-size: 50px; margin-bottom: 5px;">📄</span>
+                    <span style="font-weight: bold; font-size: 12px; color: #c3b091; letter-spacing: 0.5px;">VIEW DOCUMENT</span>
+                </div>
+                <div class="card-title" style="font-weight: bold; color: #4a3e3d; font-size: 15px; margin-top: 12px;">Activity 2</div>
+                <div class="btn-group" style="display: flex; gap: 8px; margin-top: auto;">
+                    <button onclick="window.open('activity2.pdf', '_blank')" style="flex: 1; padding: 8px 12px; cursor: pointer; border: 1px solid #8b7355; background: #ffffff; color: #8b7355; border-radius: 4px; font-weight: bold; font-size: 13px;">View</button>
+                    <button class="download" onclick="downloadFile('activity2.pdf', 'Activity_2.pdf')" style="flex: 1; padding: 8px 12px; cursor: pointer; border: 1px solid #8b7355; background: #8b7355; color: #ffffff; border-radius: 4px; font-weight: bold; font-size: 13px;">Download</button>
+                </div>
+            </div>
         </div>
     </div>
 
   
-    <div class="section-group" style="margin-bottom: 25px;">
-        <h3 style="color: #8b7355; margin-bottom: 10px;">Examinations</h3>
-        <div class="card" style="background: #fdfcf7; border: 1px solid #e0dcd3; padding: 15px; border-radius: 6px; margin-bottom: 10px;">
-            <img src="exam1.jpg" alt="Midterm Exam Preview" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; border: 1px solid #e0dcd3; margin-bottom: 10px; display: block;">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-                <span style="font-weight: bold;">Midterm Exam</span>
+    <div class="section-group">
+        <h3>Examinations</h3>
+        <div class="grid">
+            <div class="card">
+                <img src="exam1.jpg" alt="Midterm Exam" onclick="viewImage('exam1.jpg')">
+                <div class="card-title">Midterm Exam</div>
                 <div class="btn-group">
-                    <button onclick="viewImage('exam1.jpg')">View Full</button>
+                    <button onclick="viewImage('exam1.jpg')">View</button>
                     <button class="download" onclick="downloadFile('exam1.jpg', 'Midterm_Exam.jpg')">Download</button>
                 </div>
             </div>
-        </div>
-    </div>
-
-  
-    <div class="section-group" style="margin-bottom: 25px;">
-        <h3 style="color: #8b7355; margin-bottom: 10px;">Activities</h3>
-        <div class="card" style="background: #fdfcf7; border: 1px solid #e0dcd3; padding: 15px; border-radius: 6px; margin-bottom: 10px;">
-            <img src="lab1.jpg" alt="Activity 1 Preview" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; border: 1px solid #e0dcd3; margin-bottom: 10px; display: block;">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-                <span style="font-weight: bold;">Activity 1</span>
+            <div class="card">
+                <img src="exam2.jpg" alt="Final Exam" onclick="viewImage('exam2.jpg')">
+                <div class="card-title">Final Exam</div>
                 <div class="btn-group">
-                    <button onclick="viewImage('act.jpg')">View Full</button>
-                    <button class="download" onclick="downloadFile('act.jpg', 'Activity_1.jpg')">Download</button>
+                    <button onclick="viewImage('exam2.jpg')">View</button>
+                    <button class="download" onclick="downloadFile('exam2.jpg', 'Final_Exam.jpg')">Download</button>
                 </div>
             </div>
         </div>
     </div>
 
-
-    <div class="section-group" style="margin-bottom: 25px;">
-        <h3 style="color: #8b7355; margin-bottom: 10px;">Projects</h3>
-        <div class="card" style="background: #fdfcf7; border: 1px solid #e0dcd3; padding: 15px; border-radius: 6px; margin-bottom: 10px;">
-            <img src="project1.jpg" alt="Final Project Preview" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; border: 1px solid #e0dcd3; margin-bottom: 10px; display: block;">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-                <span style="font-weight: bold;">Final Project</span>
+  
+    <div class="section-group">
+        <h3>Projects</h3>
+        <div class="grid">
+            <div class="card">
+                <img src="project1.jpg" alt="Final Project" onclick="viewImage('project1.jpg')">
+                <div class="card-title">Final Project</div>
                 <div class="btn-group">
-                    <button onclick="viewImage('project1.jpg')">View Full</button>
+                    <button onclick="viewImage('project1.jpg')">View</button>
                     <button class="download" onclick="downloadFile('project1.jpg', 'Final_Project.jpg')">Download</button>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-<div id="modal" onclick="closeModal()">
-    <span class="close">&times;</span>
-    <img id="modalImg" src="">
-</div>
 <script>
+   <script>
+
     function viewImage(url) {
-    document.getElementById('modalImg').src = url;
-    document.getElementById('modal').style.display = 'flex';
-    document.body.style.overflow = 'hidden'; // Pinipigilan ang pag-scroll ng background page habang nakabukas ang modal
-}
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modalImg');
+        const extension = url.split('.').pop().toLowerCase();
 
-function closeModal() {
-    document.getElementById('modal').style.display = 'none';
-    document.getElementById('modalImg').src = '';
-    document.body.style.overflow = 'auto'; // Ibinabalik ang scroll ng background page
-}
-
-// Universal Force Download Engine para sa Android, iOS (iPhone), at PC
-function downloadFile(url, filename) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true);
-    xhr.responseType = "blob";
-    xhr.onload = function() {
-        var blob = xhr.response;
-        var reader = new FileReader();
-        reader.onloadend = function() {
-            var link = document.createElement('a');
-            link.href = reader.result;
-            link.download = filename;
-            link.style.display = 'none';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+     
+        if (['jpg', 'jpeg', 'png', 'gif', 'jfif', 'webp'].includes(extension)) {
+            modalImg.src = url;
+            modalImg.style.display = 'block';
+            
+          
+            const oldIframe = modal.querySelector('iframe');
+            if (oldIframe) oldIframe.remove();
+            
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        } else {
+          
+            window.open(url, '_blank');
         }
-        reader.readAsDataURL(blob);
-    };
-    xhr.onerror = function() {
-        // Fallback option kapag may browser level file permission issue
+    }
+
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+        document.getElementById('modalImg').src = '';
+        document.body.style.overflow = 'auto'; 
+    }
+
+  
+    function downloadFile(url, filename) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.responseType = "blob";
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                var blob = xhr.response;
+                var reader = new FileReader();
+                reader.onloadend = function() {
+                    var link = document.createElement('a');
+                    link.href = reader.result;
+                    link.download = filename;
+                    link.style.display = 'none';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }
+                reader.readAsDataURL(blob);
+            } else {
+               
+                triggerFallback(url, filename);
+            }
+        };
+        xhr.onerror = function() {
+       
+            triggerFallback(url, filename);
+        };
+        xhr.send();
+    }
+
+    function triggerFallback(url, filename) {
         var fallbackLink = document.createElement('a');
         fallbackLink.href = url;
         fallbackLink.download = filename;
         fallbackLink.target = '_blank';
+        document.body.appendChild(fallbackLink);
         fallbackLink.click();
-    };
-    xhr.send();
-}
+        document.body.removeChild(fallbackLink);
+    }
+</script>
 
 </script>
 
